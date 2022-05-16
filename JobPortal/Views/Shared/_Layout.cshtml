@@ -1,0 +1,172 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - JobPortal</title>
+
+    <link rel="stylesheet" href="~/css/style.css" />
+
+</head>
+<body>
+    <header>
+        <div class="header">
+            <div class="header-menu">
+                <ul class="logo">
+                    <a href="/JobRest">
+                        <h1>
+                            <span>Clear</span><span>Career</span>
+                        </h1>
+                    </a>
+                </ul>
+                <ul class="menu">
+                    <li><a class="" href="/JobRest">Home</a></li>
+                    <li><a class="" href="/JobRest/jobseeker/job-all.jsf">Jobs</a></li>
+                    <li><a href="">About</a></li>
+                    <li><a class="" href="/JobRest/jobseeker/contact-us.jsf">Contact</a></li>
+                </ul>
+
+
+                <ul class="account">
+                    <li>
+                        <a href="/login.jsf">Login</a>
+                    </li>
+                    <li>
+                        <a href="/login.jsf">SignUp</a>
+                    </li>
+                    <li>
+                        <a href="/login.jsf">Logout</a>
+                    </li>
+                    <li>
+                        <a href="/login.jsf">
+                            <i class="fas fa-user"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    @RenderBody()
+
+    <footer>
+        <div class="footer">
+
+            <div class="container">
+
+                <div class="col-1">
+
+                    <div class="logo">
+                        <a href="">
+                            <h1>
+                                <span>Clear</span><span>Career</span>
+                            </h1>
+                        </a>
+                    </div>
+                    <p class="desc">
+                        Lorem Ipsum Is Simply Dummy Text Of The Printing And Typesetting Industry Has Been The Industry's
+                        Standard Dummy Text Ever Since The.
+                    </p>
+                    <form class="subscribe-box" method="post">
+                        <input type="text" placeholder="Your Email Address" name="email" />
+                        <button type="submit">Subscribe</button>
+                    </form>
+                    <ul class="social-icon">
+                        <li><a href=""><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href=""><i class="fab fa-google-plus-g"></i></a></li>
+                        <li><a href=""><i class="fab fa-linkedin-in"></i></a></li>
+                        <li><a href=""><i class="fab fa-instagram"></i></a></li>
+                        <li><a href=""><i class="fab fa-twitter"></i></a></li>
+                    </ul>
+                </div>
+
+                <div class="col-2">
+                    <h2 class="title">Popular Categories</h2>
+
+                    <div class="category-container">
+                        <ul>
+                            <li>
+                                <a href="">
+                                    <span><i class="fal fa-minus"></i></span>
+                                    Category Name
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <span><i class="fal fa-minus"></i></span>
+                                    Category Name
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <span><i class="fal fa-minus"></i></span>
+                                    Category Name
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <span><i class="fal fa-minus"></i></span>
+                                    Category Name
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <span><i class="fal fa-minus"></i></span>
+                                    Category Name
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-3">
+                    <h2 class="title">Find Jobs</h2>
+
+                    <div class="location-container">
+                        <ul>
+                            <li>
+                                <a href="">
+                                    <span><i class="fal fa-minus"></i></span>
+                                    Category Name
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <span><i class="fal fa-minus"></i></span>
+                                    Category Name
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <span><i class="fal fa-minus"></i></span>
+                                    Category Name
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <span><i class="fal fa-minus"></i></span>
+                                    Category Name
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <span><i class="fal fa-minus"></i></span>
+                                    Category Name
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/FA5PRO/js/all.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

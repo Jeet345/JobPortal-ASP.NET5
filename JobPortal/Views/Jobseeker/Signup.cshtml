@@ -1,0 +1,53 @@
+﻿
+@{
+    ViewData["Title"] = "SignUp";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="signup-page-container">
+
+    <form>
+
+        <h1 class="title">Sign Up</h1>
+
+        <p class="sub-title">Enter Your Personal Details :</p>
+
+        <div class="input-filed">
+            <input type="text" placeholder="User Name"
+                   id="username" required />
+        </div>
+        <div class="input-filed">
+            <input id="email"
+                   placeholder="Email Address" required />
+
+        </div>
+        <div class="input-filed">
+            <input id="password"
+                   placeholder="Password" required />
+        </div>
+        <div class="input-filed">
+            <input id="ConPassword"
+                   placeholder="Conform Password" required />
+        </div>
+
+        <div class="input-filed">
+            <select class="form-select" label="Select Account Type" required>
+                <option>option 1</option>
+                <option>option 2</option>
+                <option>option 3</option>
+            </select>
+        </div>
+
+        <div class="btn">
+            <a href="login.jsf" class="forgot-link">
+                Already Have An Account !
+            </a>
+            <button class="signup-submit" type="submit">SignUp</button>
+        </div>
+
+    </form>
+
+</div>
+
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

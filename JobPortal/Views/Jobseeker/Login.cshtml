@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="login-page-container">
+
+
+    <form>
+
+        <h1 class="title">Personal Information</h1>
+
+        <p class="sub-title">Enter your e-mail address and your password.</p>
+
+        <div class="input-filed">
+            <input type="email" id="email" placeholder="Enter Email" required/>
+        </div>
+
+        <div class="input-filed">
+            <input type="password" id="password" placeholder="Enter Password" required/>
+        </div>
+
+
+        <div class="btn">
+            <a href="" class="forgot-link">
+                <i class="fas fa-lock"></i> Forgot Password ?
+            </a>
+
+            <button class="login-btn" type="submit">Login</button>
+        </div>
+
+    </form>
+
+    <div class="divider"></div>
+
+    <a class="signup-btn" href="signup.jsf">Create an account</a>
+
+</div>
+
+
