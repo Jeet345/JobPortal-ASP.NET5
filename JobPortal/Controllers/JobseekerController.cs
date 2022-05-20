@@ -30,5 +30,26 @@ namespace JobPortal.Controllers
         {
             return View();
         }
+        public IActionResult AllJobs()
+        {
+            return View();
+        }
+        public IActionResult Account()
+        {
+            return View();
+        }
+        public IActionResult AppliedJobs()
+        {
+            return View();
+        }
+        public IActionResult ChangePassword()
+        {
+            return View();
+        }
+        public IActionResult JobDetail()
+        {
+            return View();
+        }
+
     }
 }

@@ -23,7 +23,6 @@ C:\Users\ramva\Desktop\Job Portal ASP\JobPortal\JobPortal\obj\Debug\net5.0\JobPo
 C:\Users\ramva\Desktop\Job Portal ASP\JobPortal\JobPortal\obj\Debug\net5.0\JobPortal.TagHelpers.output.cache
 C:\Users\ramva\Desktop\Job Portal ASP\JobPortal\JobPortal\obj\Debug\net5.0\JobPortal.RazorCoreGenerate.cache
 C:\Users\ramva\Desktop\Job Portal ASP\JobPortal\JobPortal\obj\Debug\net5.0\Razor\Views\Shared\Error.cshtml.g.cs
-C:\Users\ramva\Desktop\Job Portal ASP\JobPortal\JobPortal\obj\Debug\net5.0\Razor\Views\Shared\_Layout.cshtml.g.cs
 C:\Users\ramva\Desktop\Job Portal ASP\JobPortal\JobPortal\obj\Debug\net5.0\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
 C:\Users\ramva\Desktop\Job Portal ASP\JobPortal\JobPortal\obj\Debug\net5.0\Razor\Views\_ViewImports.cshtml.g.cs
 C:\Users\ramva\Desktop\Job Portal ASP\JobPortal\JobPortal\obj\Debug\net5.0\Razor\Views\_ViewStart.cshtml.g.cs
@@ -150,3 +149,9 @@ C:\Users\ramva\Desktop\Job Portal ASP\JobPortal\JobPortal\obj\Debug\net5.0\Razor
 C:\Users\ramva\Desktop\Job Portal ASP\JobPortal\JobPortal\obj\Debug\net5.0\Razor\Views\Jobseeker\Index.cshtml.g.cs
 C:\Users\ramva\Desktop\Job Portal ASP\JobPortal\JobPortal\obj\Debug\net5.0\Razor\Views\Jobseeker\Login.cshtml.g.cs
 C:\Users\ramva\Desktop\Job Portal ASP\JobPortal\JobPortal\obj\Debug\net5.0\Razor\Views\Jobseeker\Signup.cshtml.g.cs
+C:\Users\ramva\Desktop\Job Portal ASP\JobPortal\JobPortal\obj\Debug\net5.0\Razor\Views\Jobseeker\AllJobs.cshtml.g.cs
+C:\Users\ramva\Desktop\Job Portal ASP\JobPortal\JobPortal\obj\Debug\net5.0\Razor\Views\Shared\_JobseekerLayout.cshtml.g.cs
+C:\Users\ramva\Desktop\Job Portal ASP\JobPortal\JobPortal\obj\Debug\net5.0\Razor\Views\Jobseeker\Account.cshtml.g.cs
+C:\Users\ramva\Desktop\Job Portal ASP\JobPortal\JobPortal\obj\Debug\net5.0\Razor\Views\Shared\_AccountSidebar.cshtml.g.cs
+C:\Users\ramva\Desktop\Job Portal ASP\JobPortal\JobPortal\obj\Debug\net5.0\Razor\Views\Jobseeker\ChangePassword.cshtml.g.cs
+C:\Users\ramva\Desktop\Job Portal ASP\JobPortal\JobPortal\obj\Debug\net5.0\Razor\Views\Jobseeker\JobDetail.cshtml.g.cs

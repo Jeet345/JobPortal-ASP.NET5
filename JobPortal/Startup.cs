@@ -53,7 +53,7 @@ namespace JobPortal
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Jobseeker}/{action=Signup}/{id?}");
+                    pattern: "{controller=Jobseeker}/{action=JobDetail}/{id?}");
             });
         }
     }

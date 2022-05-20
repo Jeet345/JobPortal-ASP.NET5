@@ -316,7 +316,7 @@ html {
 .job-search-container {
   width: 100%;
   height: 100vh;
-  background-image: url(../images/slide.jpg);
+  background-image: url("../images/slide.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -1012,7 +1012,7 @@ html {
 .search-header {
   width: 100%;
   height: 300px;
-  background-image: url("images/bnr1.jpg");
+  background-image: url("../images/bnr1.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -1189,7 +1189,7 @@ html {
 .search-header {
   width: 100%;
   height: 300px;
-  background-image: url("../assets/images/bnr1.jpg");
+  background-image: url("../images/bnr1.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -1435,7 +1435,7 @@ html {
   padding: 20px;
   position: -webkit-sticky;
   position: sticky;
-  top: 100px;
+  top: 25px;
 }
 
 .job-detail-body .sticky-sidebox .title {
@@ -1602,7 +1602,7 @@ html {
   border-radius: 5px;
   position: -webkit-sticky;
   position: sticky;
-  top: 100px;
+  top: 25px;
 }
 
 .account-page-container .sidebar .name {
@@ -2008,113 +2008,221 @@ html {
   padding-bottom: 10px;
 }
 
-.account-page-container .profile-container .basic-info-box .input-container .input-filed input,
+.account-page-container .profile-container .basic-info-box .input-container .input-filed input[type="text"],
+.account-page-container .profile-container .basic-info-box .input-container .input-filed input[type="date"],
+.account-page-container .profile-container .basic-info-box .input-container .input-filed input[type="password"],
 .account-page-container .profile-container .basic-info-box .input-container .input-filed .selectBox,
+.account-page-container .profile-container .basic-info-box .input-container .input-filed select,
 .account-page-container .profile-container .basic-info-box .input-container .input-filed textarea,
-.account-page-container .profile-container .company-basic-info-box .input-container .input-filed input,
+.account-page-container .profile-container .company-basic-info-box .input-container .input-filed input[type="text"],
+.account-page-container .profile-container .company-basic-info-box .input-container .input-filed input[type="date"],
+.account-page-container .profile-container .company-basic-info-box .input-container .input-filed input[type="password"],
 .account-page-container .profile-container .company-basic-info-box .input-container .input-filed .selectBox,
+.account-page-container .profile-container .company-basic-info-box .input-container .input-filed select,
 .account-page-container .profile-container .company-basic-info-box .input-container .input-filed textarea,
-.account-page-container .profile-container .job-post-box .input-container .input-filed input,
+.account-page-container .profile-container .job-post-box .input-container .input-filed input[type="text"],
+.account-page-container .profile-container .job-post-box .input-container .input-filed input[type="date"],
+.account-page-container .profile-container .job-post-box .input-container .input-filed input[type="password"],
 .account-page-container .profile-container .job-post-box .input-container .input-filed .selectBox,
+.account-page-container .profile-container .job-post-box .input-container .input-filed select,
 .account-page-container .profile-container .job-post-box .input-container .input-filed textarea,
-.account-page-container .profile-container .change-password-box .input-container .input-filed input,
+.account-page-container .profile-container .change-password-box .input-container .input-filed input[type="text"],
+.account-page-container .profile-container .change-password-box .input-container .input-filed input[type="date"],
+.account-page-container .profile-container .change-password-box .input-container .input-filed input[type="password"],
 .account-page-container .profile-container .change-password-box .input-container .input-filed .selectBox,
+.account-page-container .profile-container .change-password-box .input-container .input-filed select,
 .account-page-container .profile-container .change-password-box .input-container .input-filed textarea,
-.account-page-container .profile-container .experience-info-box .input-container .input-filed input,
+.account-page-container .profile-container .experience-info-box .input-container .input-filed input[type="text"],
+.account-page-container .profile-container .experience-info-box .input-container .input-filed input[type="date"],
+.account-page-container .profile-container .experience-info-box .input-container .input-filed input[type="password"],
 .account-page-container .profile-container .experience-info-box .input-container .input-filed .selectBox,
+.account-page-container .profile-container .experience-info-box .input-container .input-filed select,
 .account-page-container .profile-container .experience-info-box .input-container .input-filed textarea,
-.account-page-container .profile-container .project-info-box .input-container .input-filed input,
+.account-page-container .profile-container .project-info-box .input-container .input-filed input[type="text"],
+.account-page-container .profile-container .project-info-box .input-container .input-filed input[type="date"],
+.account-page-container .profile-container .project-info-box .input-container .input-filed input[type="password"],
 .account-page-container .profile-container .project-info-box .input-container .input-filed .selectBox,
+.account-page-container .profile-container .project-info-box .input-container .input-filed select,
 .account-page-container .profile-container .project-info-box .input-container .input-filed textarea,
-.account-page-container .profile-container .skill-info-box .input-container .input-filed input,
+.account-page-container .profile-container .skill-info-box .input-container .input-filed input[type="text"],
+.account-page-container .profile-container .skill-info-box .input-container .input-filed input[type="date"],
+.account-page-container .profile-container .skill-info-box .input-container .input-filed input[type="password"],
 .account-page-container .profile-container .skill-info-box .input-container .input-filed .selectBox,
+.account-page-container .profile-container .skill-info-box .input-container .input-filed select,
 .account-page-container .profile-container .skill-info-box .input-container .input-filed textarea,
-.account-page-container .profile-container .applied-job-box .input-container .input-filed input,
+.account-page-container .profile-container .applied-job-box .input-container .input-filed input[type="text"],
+.account-page-container .profile-container .applied-job-box .input-container .input-filed input[type="date"],
+.account-page-container .profile-container .applied-job-box .input-container .input-filed input[type="password"],
 .account-page-container .profile-container .applied-job-box .input-container .input-filed .selectBox,
+.account-page-container .profile-container .applied-job-box .input-container .input-filed select,
 .account-page-container .profile-container .applied-job-box .input-container .input-filed textarea,
-.account-page-container .profile-container .education-info-box .input-container .input-filed input,
+.account-page-container .profile-container .education-info-box .input-container .input-filed input[type="text"],
+.account-page-container .profile-container .education-info-box .input-container .input-filed input[type="date"],
+.account-page-container .profile-container .education-info-box .input-container .input-filed input[type="password"],
 .account-page-container .profile-container .education-info-box .input-container .input-filed .selectBox,
+.account-page-container .profile-container .education-info-box .input-container .input-filed select,
 .account-page-container .profile-container .education-info-box .input-container .input-filed textarea,
-.account-page-container .job-post-container .basic-info-box .input-container .input-filed input,
+.account-page-container .job-post-container .basic-info-box .input-container .input-filed input[type="text"],
+.account-page-container .job-post-container .basic-info-box .input-container .input-filed input[type="date"],
+.account-page-container .job-post-container .basic-info-box .input-container .input-filed input[type="password"],
 .account-page-container .job-post-container .basic-info-box .input-container .input-filed .selectBox,
+.account-page-container .job-post-container .basic-info-box .input-container .input-filed select,
 .account-page-container .job-post-container .basic-info-box .input-container .input-filed textarea,
-.account-page-container .job-post-container .company-basic-info-box .input-container .input-filed input,
+.account-page-container .job-post-container .company-basic-info-box .input-container .input-filed input[type="text"],
+.account-page-container .job-post-container .company-basic-info-box .input-container .input-filed input[type="date"],
+.account-page-container .job-post-container .company-basic-info-box .input-container .input-filed input[type="password"],
 .account-page-container .job-post-container .company-basic-info-box .input-container .input-filed .selectBox,
+.account-page-container .job-post-container .company-basic-info-box .input-container .input-filed select,
 .account-page-container .job-post-container .company-basic-info-box .input-container .input-filed textarea,
-.account-page-container .job-post-container .job-post-box .input-container .input-filed input,
+.account-page-container .job-post-container .job-post-box .input-container .input-filed input[type="text"],
+.account-page-container .job-post-container .job-post-box .input-container .input-filed input[type="date"],
+.account-page-container .job-post-container .job-post-box .input-container .input-filed input[type="password"],
 .account-page-container .job-post-container .job-post-box .input-container .input-filed .selectBox,
+.account-page-container .job-post-container .job-post-box .input-container .input-filed select,
 .account-page-container .job-post-container .job-post-box .input-container .input-filed textarea,
-.account-page-container .job-post-container .change-password-box .input-container .input-filed input,
+.account-page-container .job-post-container .change-password-box .input-container .input-filed input[type="text"],
+.account-page-container .job-post-container .change-password-box .input-container .input-filed input[type="date"],
+.account-page-container .job-post-container .change-password-box .input-container .input-filed input[type="password"],
 .account-page-container .job-post-container .change-password-box .input-container .input-filed .selectBox,
+.account-page-container .job-post-container .change-password-box .input-container .input-filed select,
 .account-page-container .job-post-container .change-password-box .input-container .input-filed textarea,
-.account-page-container .job-post-container .experience-info-box .input-container .input-filed input,
+.account-page-container .job-post-container .experience-info-box .input-container .input-filed input[type="text"],
+.account-page-container .job-post-container .experience-info-box .input-container .input-filed input[type="date"],
+.account-page-container .job-post-container .experience-info-box .input-container .input-filed input[type="password"],
 .account-page-container .job-post-container .experience-info-box .input-container .input-filed .selectBox,
+.account-page-container .job-post-container .experience-info-box .input-container .input-filed select,
 .account-page-container .job-post-container .experience-info-box .input-container .input-filed textarea,
-.account-page-container .job-post-container .project-info-box .input-container .input-filed input,
+.account-page-container .job-post-container .project-info-box .input-container .input-filed input[type="text"],
+.account-page-container .job-post-container .project-info-box .input-container .input-filed input[type="date"],
+.account-page-container .job-post-container .project-info-box .input-container .input-filed input[type="password"],
 .account-page-container .job-post-container .project-info-box .input-container .input-filed .selectBox,
+.account-page-container .job-post-container .project-info-box .input-container .input-filed select,
 .account-page-container .job-post-container .project-info-box .input-container .input-filed textarea,
-.account-page-container .job-post-container .skill-info-box .input-container .input-filed input,
+.account-page-container .job-post-container .skill-info-box .input-container .input-filed input[type="text"],
+.account-page-container .job-post-container .skill-info-box .input-container .input-filed input[type="date"],
+.account-page-container .job-post-container .skill-info-box .input-container .input-filed input[type="password"],
 .account-page-container .job-post-container .skill-info-box .input-container .input-filed .selectBox,
+.account-page-container .job-post-container .skill-info-box .input-container .input-filed select,
 .account-page-container .job-post-container .skill-info-box .input-container .input-filed textarea,
-.account-page-container .job-post-container .applied-job-box .input-container .input-filed input,
+.account-page-container .job-post-container .applied-job-box .input-container .input-filed input[type="text"],
+.account-page-container .job-post-container .applied-job-box .input-container .input-filed input[type="date"],
+.account-page-container .job-post-container .applied-job-box .input-container .input-filed input[type="password"],
 .account-page-container .job-post-container .applied-job-box .input-container .input-filed .selectBox,
+.account-page-container .job-post-container .applied-job-box .input-container .input-filed select,
 .account-page-container .job-post-container .applied-job-box .input-container .input-filed textarea,
-.account-page-container .job-post-container .education-info-box .input-container .input-filed input,
+.account-page-container .job-post-container .education-info-box .input-container .input-filed input[type="text"],
+.account-page-container .job-post-container .education-info-box .input-container .input-filed input[type="date"],
+.account-page-container .job-post-container .education-info-box .input-container .input-filed input[type="password"],
 .account-page-container .job-post-container .education-info-box .input-container .input-filed .selectBox,
+.account-page-container .job-post-container .education-info-box .input-container .input-filed select,
 .account-page-container .job-post-container .education-info-box .input-container .input-filed textarea,
-.account-page-container .applied-job-container .basic-info-box .input-container .input-filed input,
+.account-page-container .applied-job-container .basic-info-box .input-container .input-filed input[type="text"],
+.account-page-container .applied-job-container .basic-info-box .input-container .input-filed input[type="date"],
+.account-page-container .applied-job-container .basic-info-box .input-container .input-filed input[type="password"],
 .account-page-container .applied-job-container .basic-info-box .input-container .input-filed .selectBox,
+.account-page-container .applied-job-container .basic-info-box .input-container .input-filed select,
 .account-page-container .applied-job-container .basic-info-box .input-container .input-filed textarea,
-.account-page-container .applied-job-container .company-basic-info-box .input-container .input-filed input,
+.account-page-container .applied-job-container .company-basic-info-box .input-container .input-filed input[type="text"],
+.account-page-container .applied-job-container .company-basic-info-box .input-container .input-filed input[type="date"],
+.account-page-container .applied-job-container .company-basic-info-box .input-container .input-filed input[type="password"],
 .account-page-container .applied-job-container .company-basic-info-box .input-container .input-filed .selectBox,
+.account-page-container .applied-job-container .company-basic-info-box .input-container .input-filed select,
 .account-page-container .applied-job-container .company-basic-info-box .input-container .input-filed textarea,
-.account-page-container .applied-job-container .job-post-box .input-container .input-filed input,
+.account-page-container .applied-job-container .job-post-box .input-container .input-filed input[type="text"],
+.account-page-container .applied-job-container .job-post-box .input-container .input-filed input[type="date"],
+.account-page-container .applied-job-container .job-post-box .input-container .input-filed input[type="password"],
 .account-page-container .applied-job-container .job-post-box .input-container .input-filed .selectBox,
+.account-page-container .applied-job-container .job-post-box .input-container .input-filed select,
 .account-page-container .applied-job-container .job-post-box .input-container .input-filed textarea,
-.account-page-container .applied-job-container .change-password-box .input-container .input-filed input,
+.account-page-container .applied-job-container .change-password-box .input-container .input-filed input[type="text"],
+.account-page-container .applied-job-container .change-password-box .input-container .input-filed input[type="date"],
+.account-page-container .applied-job-container .change-password-box .input-container .input-filed input[type="password"],
 .account-page-container .applied-job-container .change-password-box .input-container .input-filed .selectBox,
+.account-page-container .applied-job-container .change-password-box .input-container .input-filed select,
 .account-page-container .applied-job-container .change-password-box .input-container .input-filed textarea,
-.account-page-container .applied-job-container .experience-info-box .input-container .input-filed input,
+.account-page-container .applied-job-container .experience-info-box .input-container .input-filed input[type="text"],
+.account-page-container .applied-job-container .experience-info-box .input-container .input-filed input[type="date"],
+.account-page-container .applied-job-container .experience-info-box .input-container .input-filed input[type="password"],
 .account-page-container .applied-job-container .experience-info-box .input-container .input-filed .selectBox,
+.account-page-container .applied-job-container .experience-info-box .input-container .input-filed select,
 .account-page-container .applied-job-container .experience-info-box .input-container .input-filed textarea,
-.account-page-container .applied-job-container .project-info-box .input-container .input-filed input,
+.account-page-container .applied-job-container .project-info-box .input-container .input-filed input[type="text"],
+.account-page-container .applied-job-container .project-info-box .input-container .input-filed input[type="date"],
+.account-page-container .applied-job-container .project-info-box .input-container .input-filed input[type="password"],
 .account-page-container .applied-job-container .project-info-box .input-container .input-filed .selectBox,
+.account-page-container .applied-job-container .project-info-box .input-container .input-filed select,
 .account-page-container .applied-job-container .project-info-box .input-container .input-filed textarea,
-.account-page-container .applied-job-container .skill-info-box .input-container .input-filed input,
+.account-page-container .applied-job-container .skill-info-box .input-container .input-filed input[type="text"],
+.account-page-container .applied-job-container .skill-info-box .input-container .input-filed input[type="date"],
+.account-page-container .applied-job-container .skill-info-box .input-container .input-filed input[type="password"],
 .account-page-container .applied-job-container .skill-info-box .input-container .input-filed .selectBox,
+.account-page-container .applied-job-container .skill-info-box .input-container .input-filed select,
 .account-page-container .applied-job-container .skill-info-box .input-container .input-filed textarea,
-.account-page-container .applied-job-container .applied-job-box .input-container .input-filed input,
+.account-page-container .applied-job-container .applied-job-box .input-container .input-filed input[type="text"],
+.account-page-container .applied-job-container .applied-job-box .input-container .input-filed input[type="date"],
+.account-page-container .applied-job-container .applied-job-box .input-container .input-filed input[type="password"],
 .account-page-container .applied-job-container .applied-job-box .input-container .input-filed .selectBox,
+.account-page-container .applied-job-container .applied-job-box .input-container .input-filed select,
 .account-page-container .applied-job-container .applied-job-box .input-container .input-filed textarea,
-.account-page-container .applied-job-container .education-info-box .input-container .input-filed input,
+.account-page-container .applied-job-container .education-info-box .input-container .input-filed input[type="text"],
+.account-page-container .applied-job-container .education-info-box .input-container .input-filed input[type="date"],
+.account-page-container .applied-job-container .education-info-box .input-container .input-filed input[type="password"],
 .account-page-container .applied-job-container .education-info-box .input-container .input-filed .selectBox,
+.account-page-container .applied-job-container .education-info-box .input-container .input-filed select,
 .account-page-container .applied-job-container .education-info-box .input-container .input-filed textarea,
-.account-page-container .change-password-container .basic-info-box .input-container .input-filed input,
+.account-page-container .change-password-container .basic-info-box .input-container .input-filed input[type="text"],
+.account-page-container .change-password-container .basic-info-box .input-container .input-filed input[type="date"],
+.account-page-container .change-password-container .basic-info-box .input-container .input-filed input[type="password"],
 .account-page-container .change-password-container .basic-info-box .input-container .input-filed .selectBox,
+.account-page-container .change-password-container .basic-info-box .input-container .input-filed select,
 .account-page-container .change-password-container .basic-info-box .input-container .input-filed textarea,
-.account-page-container .change-password-container .company-basic-info-box .input-container .input-filed input,
+.account-page-container .change-password-container .company-basic-info-box .input-container .input-filed input[type="text"],
+.account-page-container .change-password-container .company-basic-info-box .input-container .input-filed input[type="date"],
+.account-page-container .change-password-container .company-basic-info-box .input-container .input-filed input[type="password"],
 .account-page-container .change-password-container .company-basic-info-box .input-container .input-filed .selectBox,
+.account-page-container .change-password-container .company-basic-info-box .input-container .input-filed select,
 .account-page-container .change-password-container .company-basic-info-box .input-container .input-filed textarea,
-.account-page-container .change-password-container .job-post-box .input-container .input-filed input,
+.account-page-container .change-password-container .job-post-box .input-container .input-filed input[type="text"],
+.account-page-container .change-password-container .job-post-box .input-container .input-filed input[type="date"],
+.account-page-container .change-password-container .job-post-box .input-container .input-filed input[type="password"],
 .account-page-container .change-password-container .job-post-box .input-container .input-filed .selectBox,
+.account-page-container .change-password-container .job-post-box .input-container .input-filed select,
 .account-page-container .change-password-container .job-post-box .input-container .input-filed textarea,
-.account-page-container .change-password-container .change-password-box .input-container .input-filed input,
+.account-page-container .change-password-container .change-password-box .input-container .input-filed input[type="text"],
+.account-page-container .change-password-container .change-password-box .input-container .input-filed input[type="date"],
+.account-page-container .change-password-container .change-password-box .input-container .input-filed input[type="password"],
 .account-page-container .change-password-container .change-password-box .input-container .input-filed .selectBox,
+.account-page-container .change-password-container .change-password-box .input-container .input-filed select,
 .account-page-container .change-password-container .change-password-box .input-container .input-filed textarea,
-.account-page-container .change-password-container .experience-info-box .input-container .input-filed input,
+.account-page-container .change-password-container .experience-info-box .input-container .input-filed input[type="text"],
+.account-page-container .change-password-container .experience-info-box .input-container .input-filed input[type="date"],
+.account-page-container .change-password-container .experience-info-box .input-container .input-filed input[type="password"],
 .account-page-container .change-password-container .experience-info-box .input-container .input-filed .selectBox,
+.account-page-container .change-password-container .experience-info-box .input-container .input-filed select,
 .account-page-container .change-password-container .experience-info-box .input-container .input-filed textarea,
-.account-page-container .change-password-container .project-info-box .input-container .input-filed input,
+.account-page-container .change-password-container .project-info-box .input-container .input-filed input[type="text"],
+.account-page-container .change-password-container .project-info-box .input-container .input-filed input[type="date"],
+.account-page-container .change-password-container .project-info-box .input-container .input-filed input[type="password"],
 .account-page-container .change-password-container .project-info-box .input-container .input-filed .selectBox,
+.account-page-container .change-password-container .project-info-box .input-container .input-filed select,
 .account-page-container .change-password-container .project-info-box .input-container .input-filed textarea,
-.account-page-container .change-password-container .skill-info-box .input-container .input-filed input,
+.account-page-container .change-password-container .skill-info-box .input-container .input-filed input[type="text"],
+.account-page-container .change-password-container .skill-info-box .input-container .input-filed input[type="date"],
+.account-page-container .change-password-container .skill-info-box .input-container .input-filed input[type="password"],
 .account-page-container .change-password-container .skill-info-box .input-container .input-filed .selectBox,
+.account-page-container .change-password-container .skill-info-box .input-container .input-filed select,
 .account-page-container .change-password-container .skill-info-box .input-container .input-filed textarea,
-.account-page-container .change-password-container .applied-job-box .input-container .input-filed input,
+.account-page-container .change-password-container .applied-job-box .input-container .input-filed input[type="text"],
+.account-page-container .change-password-container .applied-job-box .input-container .input-filed input[type="date"],
+.account-page-container .change-password-container .applied-job-box .input-container .input-filed input[type="password"],
 .account-page-container .change-password-container .applied-job-box .input-container .input-filed .selectBox,
+.account-page-container .change-password-container .applied-job-box .input-container .input-filed select,
 .account-page-container .change-password-container .applied-job-box .input-container .input-filed textarea,
-.account-page-container .change-password-container .education-info-box .input-container .input-filed input,
+.account-page-container .change-password-container .education-info-box .input-container .input-filed input[type="text"],
+.account-page-container .change-password-container .education-info-box .input-container .input-filed input[type="date"],
+.account-page-container .change-password-container .education-info-box .input-container .input-filed input[type="password"],
 .account-page-container .change-password-container .education-info-box .input-container .input-filed .selectBox,
+.account-page-container .change-password-container .education-info-box .input-container .input-filed select,
 .account-page-container .change-password-container .education-info-box .input-container .input-filed textarea {
   background: none;
   border: none;
@@ -2164,6 +2272,47 @@ html {
 .account-page-container .change-password-container .applied-job-box .input-container .input-filed .selectBox,
 .account-page-container .change-password-container .education-info-box .input-container .input-filed .selectBox {
   padding: 7px;
+}
+
+.account-page-container .profile-container .basic-info-box .input-container .input-filed .radio-btn,
+.account-page-container .profile-container .company-basic-info-box .input-container .input-filed .radio-btn,
+.account-page-container .profile-container .job-post-box .input-container .input-filed .radio-btn,
+.account-page-container .profile-container .change-password-box .input-container .input-filed .radio-btn,
+.account-page-container .profile-container .experience-info-box .input-container .input-filed .radio-btn,
+.account-page-container .profile-container .project-info-box .input-container .input-filed .radio-btn,
+.account-page-container .profile-container .skill-info-box .input-container .input-filed .radio-btn,
+.account-page-container .profile-container .applied-job-box .input-container .input-filed .radio-btn,
+.account-page-container .profile-container .education-info-box .input-container .input-filed .radio-btn,
+.account-page-container .job-post-container .basic-info-box .input-container .input-filed .radio-btn,
+.account-page-container .job-post-container .company-basic-info-box .input-container .input-filed .radio-btn,
+.account-page-container .job-post-container .job-post-box .input-container .input-filed .radio-btn,
+.account-page-container .job-post-container .change-password-box .input-container .input-filed .radio-btn,
+.account-page-container .job-post-container .experience-info-box .input-container .input-filed .radio-btn,
+.account-page-container .job-post-container .project-info-box .input-container .input-filed .radio-btn,
+.account-page-container .job-post-container .skill-info-box .input-container .input-filed .radio-btn,
+.account-page-container .job-post-container .applied-job-box .input-container .input-filed .radio-btn,
+.account-page-container .job-post-container .education-info-box .input-container .input-filed .radio-btn,
+.account-page-container .applied-job-container .basic-info-box .input-container .input-filed .radio-btn,
+.account-page-container .applied-job-container .company-basic-info-box .input-container .input-filed .radio-btn,
+.account-page-container .applied-job-container .job-post-box .input-container .input-filed .radio-btn,
+.account-page-container .applied-job-container .change-password-box .input-container .input-filed .radio-btn,
+.account-page-container .applied-job-container .experience-info-box .input-container .input-filed .radio-btn,
+.account-page-container .applied-job-container .project-info-box .input-container .input-filed .radio-btn,
+.account-page-container .applied-job-container .skill-info-box .input-container .input-filed .radio-btn,
+.account-page-container .applied-job-container .applied-job-box .input-container .input-filed .radio-btn,
+.account-page-container .applied-job-container .education-info-box .input-container .input-filed .radio-btn,
+.account-page-container .change-password-container .basic-info-box .input-container .input-filed .radio-btn,
+.account-page-container .change-password-container .company-basic-info-box .input-container .input-filed .radio-btn,
+.account-page-container .change-password-container .job-post-box .input-container .input-filed .radio-btn,
+.account-page-container .change-password-container .change-password-box .input-container .input-filed .radio-btn,
+.account-page-container .change-password-container .experience-info-box .input-container .input-filed .radio-btn,
+.account-page-container .change-password-container .project-info-box .input-container .input-filed .radio-btn,
+.account-page-container .change-password-container .skill-info-box .input-container .input-filed .radio-btn,
+.account-page-container .change-password-container .applied-job-box .input-container .input-filed .radio-btn,
+.account-page-container .change-password-container .education-info-box .input-container .input-filed .radio-btn {
+  margin-right: 20px;
+  float: left;
+  margin-top: 16px;
 }
 
 .account-page-container .profile-container .basic-info-box .input-container .textarea-filed,
@@ -2426,6 +2575,7 @@ html {
 .admin-overlay-input-container {
   position: fixed;
   top: 0px;
+  left: 0px;
   z-index: 1000;
   place-items: center;
   width: 100%;
@@ -2555,10 +2705,18 @@ html {
           box-shadow: 0px 0px 7px 0px rgba(0, 23, 128, 0.116) !important;
 }
 
-.overlay-input-container .input-container .input-box .input-filed input,
+.overlay-input-container .input-container .input-box .input-filed input[type="text"],
+.overlay-input-container .input-container .input-box .input-filed input[type="date"],
+.overlay-input-container .input-container .input-box .input-filed input[type="password"],
+.overlay-input-container .input-container .input-box .input-filed input[type="number"],
+.overlay-input-container .input-container .input-box .input-filed select,
 .overlay-input-container .input-container .input-box .input-filed textarea,
 .overlay-input-container .input-container .input-box .input-filed .selectMenu,
-.admin-overlay-input-container .input-container .input-box .input-filed input,
+.admin-overlay-input-container .input-container .input-box .input-filed input[type="text"],
+.admin-overlay-input-container .input-container .input-box .input-filed input[type="date"],
+.admin-overlay-input-container .input-container .input-box .input-filed input[type="password"],
+.admin-overlay-input-container .input-container .input-box .input-filed input[type="number"],
+.admin-overlay-input-container .input-container .input-box .input-filed select,
 .admin-overlay-input-container .input-container .input-box .input-filed textarea,
 .admin-overlay-input-container .input-container .input-box .input-filed .selectMenu {
   background: none;
@@ -2576,6 +2734,19 @@ html {
 .overlay-input-container .input-container .input-box .input-filed .selectMenu,
 .admin-overlay-input-container .input-container .input-box .input-filed .selectMenu {
   padding: 7px;
+}
+
+.overlay-input-container .input-container .input-box .input-filed .radio-btn,
+.admin-overlay-input-container .input-container .input-box .input-filed .radio-btn {
+  float: left;
+  margin-bottom: 20px;
+  margin-top: 10px;
+  margin-right: 25px;
+}
+
+.overlay-input-container .input-container .input-box .input-filed .radio-btn label,
+.admin-overlay-input-container .input-container .input-box .input-filed .radio-btn label {
+  margin-left: 5px;
 }
 
 .overlay-input-container .input-container .input-footer,

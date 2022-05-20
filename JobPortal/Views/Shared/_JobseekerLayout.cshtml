@@ -13,32 +13,31 @@
         <div class="header">
             <div class="header-menu">
                 <ul class="logo">
-                    <a href="/JobRest">
+                    <a href="/">
                         <h1>
                             <span>Clear</span><span>Career</span>
                         </h1>
                     </a>
                 </ul>
                 <ul class="menu">
-                    <li><a class="" href="/JobRest">Home</a></li>
-                    <li><a class="" href="/JobRest/jobseeker/job-all.jsf">Jobs</a></li>
-                    <li><a href="">About</a></li>
-                    <li><a class="" href="/JobRest/jobseeker/contact-us.jsf">Contact</a></li>
+                    <li><a class="" href="/Jobseeker">Home</a></li>
+                    <li><a class="" href="/Jobseeker/AllJobs">Jobs</a></li>
+                    <li><a href="/Jobseeker/About">About</a></li>
+                    <li><a class="" href="/Jobseeker/Contact">Contact</a></li>
                 </ul>
-
 
                 <ul class="account">
                     <li>
-                        <a href="/login.jsf">Login</a>
+                        <a href="/Jobseeker/Login">Login</a>
                     </li>
                     <li>
-                        <a href="/login.jsf">SignUp</a>
+                        <a href="/Jobseeker/Signup">SignUp</a>
                     </li>
                     <li>
-                        <a href="/login.jsf">Logout</a>
+                        <a href="/Jobseeker/Logout">Logout</a>
                     </li>
                     <li>
-                        <a href="/login.jsf">
+                        <a href="/Jobseeker/Account">
                             <i class="fas fa-user"></i>
                         </a>
                     </li>
@@ -165,7 +164,11 @@
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/FA5PRO/js/all.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"
+            integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>
