@@ -27,6 +27,12 @@ namespace JobPortal
         {
             services.AddControllersWithViews();
             services.AddDbContext<JobPortalDBContext>(o => o.UseSqlServer(Configuration.GetConnectionString("DBConnectionStrings")));
+            services.AddSession(options =>
+            {
+                options.Cookie.Name = ".AdventureWorks.Session";
+                options.IdleTimeout = TimeSpan.FromDays(365);
+                options.Cookie.IsEssential = true;
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -47,13 +53,15 @@ namespace JobPortal
 
             app.UseRouting();
 
+            app.UseSession();
+
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Jobseeker}/{action=JobDetail}/{id?}");
+                    pattern: "{controller=Jobseeker}/{action=Index}/{id?}");
             });
         }
     }

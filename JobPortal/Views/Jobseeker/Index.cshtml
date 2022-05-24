@@ -255,3 +255,24 @@
     </div>
 
 </div>
+
+
+@section Scripts
+{
+    @using Microsoft.AspNetCore.Http
+    @if (TempData["loginSuccess"] != null)
+    {
+        <script>
+            toastr.success('@TempData["loginSuccess"]');
+        </script>
+    }
+
+    @if (Context.Session.GetString("userEmail") != null)
+    {
+        <script>
+            alert('@Context.Session.GetString("userEmail")');
+        </script>
+    }
+
+
+}

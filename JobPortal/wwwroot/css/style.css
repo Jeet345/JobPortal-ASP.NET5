@@ -727,6 +727,14 @@ html {
   cursor: pointer;
   -webkit-transition: 0.3s;
   transition: 0.3s;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
 }
 
 .login-page-container form .btn .login-btn:hover,
@@ -2982,5 +2990,20 @@ html {
 
 .applied-job-container .action-btn .delete-btn:hover {
   background-color: #d10303;
+}
+
+.error-msg {
+  color: red;
+  font-weight: 400;
+  display: block;
+  margin-left: 10px;
+  margin-top: 6px;
+  font-size: 0.95rem;
+}
+
+#myLoader {
+  margin-left: 10px;
+  display: block;
+  display: none;
 }
 /*# sourceMappingURL=style.css.map */

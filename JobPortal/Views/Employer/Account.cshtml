@@ -1,0 +1,59 @@
+﻿@{
+    ViewData["Title"] = "Account";
+    Layout = "~/Views/Shared/_EmployerLayout.cshtml";
+}
+
+<div class="account-page-container">
+
+    <partial name="_EmployerAccountSidebar" />
+
+    <div class="profile-container">
+
+        <form class="company-basic-info-box">
+
+            <h3 class="heading">BASIC INFORMATION</h3>
+
+            <div class="input-container">
+                <div class="input-filed">
+                    <h5 class="input-title">Company Name</h5>
+                    <input type="text" required id="name" placeholder="XYZ Company" />
+
+                </div>
+                <div class="input-filed">
+                    <h5 class="input-title">Your Website</h5>
+                    <input type="text" required placeholder="xyz@domain.com" id="website" />
+
+                </div>
+                <div class="input-filed">
+                    <h5 class="input-title">Your City</h5>
+                    <input type="text" required id="city" placeholder="Surat" />
+
+                </div>
+                <div class="input-filed">
+                    <h5 class="input-title">Your State</h5>
+                    <input type="text" required id="state" placeholder="Gujarat" />
+
+                </div>
+                <div class="input-filed">
+                    <h5 class="input-title">Your Country</h5>
+                    <input type="text" required id="country" placeholder="India" />
+                </div>
+                <div class="input-filed textarea-filed">
+                    <h5 class="input-title">Your Address</h5>
+                    <textarea placeholder="Enter Address" required id="address"></textarea>
+                </div>
+                <div class="input-filed" style="grid-column: span 2">
+                    <h5 class="input-title">About Company</h5>
+                    <textarea placeholder="Enter Description" required id="about"></textarea>
+
+                </div>
+            </div>
+
+            <button type="submit" class="submit-btn">Save Changes</button>
+
+        </form>
+
+    </div>
+
+
+</div>

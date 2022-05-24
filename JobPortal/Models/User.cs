@@ -45,5 +45,7 @@ namespace JobPortal.Models
         public virtual ICollection<JobSeekerProject> JobSeekerProjects { get; set; }
         public virtual ICollection<JobSeekerSkill> JobSeekerSkills { get; set; }
         public virtual ICollection<Job> Jobs { get; set; }
+
+
     }
 }

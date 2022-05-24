@@ -15624,6 +15624,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\ramva\\Desktop\\Job Portal ASP\\JobPortal\\JobPortal\\Views\\Employer\\ManageJobs.cshtml",
+      "TargetPath": "Views\\Employer\\ManageJobs.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\ramva\\Desktop\\Job Portal ASP\\JobPortal\\JobPortal\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
       "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
       "FileKind": "mvc"
@@ -15634,13 +15639,23 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\ramva\\Desktop\\Job Portal ASP\\JobPortal\\JobPortal\\Views\\Account\\Login.cshtml",
+      "TargetPath": "Views\\Account\\Login.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\ramva\\Desktop\\Job Portal ASP\\JobPortal\\JobPortal\\Views\\Account\\ChangePassword.cshtml",
+      "TargetPath": "Views\\Account\\ChangePassword.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\ramva\\Desktop\\Job Portal ASP\\JobPortal\\JobPortal\\Views\\Users\\Edit.cshtml",
       "TargetPath": "Views\\Users\\Edit.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\ramva\\Desktop\\Job Portal ASP\\JobPortal\\JobPortal\\Views\\Jobseeker\\ChangePassword.cshtml",
-      "TargetPath": "Views\\Jobseeker\\ChangePassword.cshtml",
+      "FilePath": "c:\\Users\\ramva\\Desktop\\Job Portal ASP\\JobPortal\\JobPortal\\Views\\Account\\Signup.cshtml",
+      "TargetPath": "Views\\Account\\Signup.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -15649,18 +15664,28 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\ramva\\Desktop\\Job Portal ASP\\JobPortal\\JobPortal\\Views\\Employer\\JobDetail.cshtml",
+      "TargetPath": "Views\\Employer\\JobDetail.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\ramva\\Desktop\\Job Portal ASP\\JobPortal\\JobPortal\\Views\\Jobseeker\\AppliedJobs.cshtml",
+      "TargetPath": "Views\\Jobseeker\\AppliedJobs.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\ramva\\Desktop\\Job Portal ASP\\JobPortal\\JobPortal\\Views\\Users\\Index.cshtml",
       "TargetPath": "Views\\Users\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\ramva\\Desktop\\Job Portal ASP\\JobPortal\\JobPortal\\Views\\Shared\\_AccountSidebar.cshtml",
-      "TargetPath": "Views\\Shared\\_AccountSidebar.cshtml",
+      "FilePath": "c:\\Users\\ramva\\Desktop\\Job Portal ASP\\JobPortal\\JobPortal\\Views\\_ViewImports.cshtml",
+      "TargetPath": "Views\\_ViewImports.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\ramva\\Desktop\\Job Portal ASP\\JobPortal\\JobPortal\\Views\\_ViewImports.cshtml",
-      "TargetPath": "Views\\_ViewImports.cshtml",
+      "FilePath": "c:\\Users\\ramva\\Desktop\\Job Portal ASP\\JobPortal\\JobPortal\\Views\\Employer\\Account.cshtml",
+      "TargetPath": "Views\\Employer\\Account.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -15674,13 +15699,28 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\ramva\\Desktop\\Job Portal ASP\\JobPortal\\JobPortal\\Views\\Jobseeker\\Signup.cshtml",
-      "TargetPath": "Views\\Jobseeker\\Signup.cshtml",
+      "FilePath": "c:\\Users\\ramva\\Desktop\\Job Portal ASP\\JobPortal\\JobPortal\\Views\\Shared\\_EmployerAccountSidebar.cshtml",
+      "TargetPath": "Views\\Shared\\_EmployerAccountSidebar.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\ramva\\Desktop\\Job Portal ASP\\JobPortal\\JobPortal\\Views\\Employer\\AllJobs.cshtml",
+      "TargetPath": "Views\\Employer\\AllJobs.cshtml",
       "FileKind": "mvc"
     },
     {
       "FilePath": "c:\\Users\\ramva\\Desktop\\Job Portal ASP\\JobPortal\\JobPortal\\Views\\Users\\Details.cshtml",
       "TargetPath": "Views\\Users\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\ramva\\Desktop\\Job Portal ASP\\JobPortal\\JobPortal\\Views\\Employer\\PostJob.cshtml",
+      "TargetPath": "Views\\Employer\\PostJob.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\ramva\\Desktop\\Job Portal ASP\\JobPortal\\JobPortal\\Views\\Employer\\Index.cshtml",
+      "TargetPath": "Views\\Employer\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -15699,13 +15739,18 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\ramva\\Desktop\\Job Portal ASP\\JobPortal\\JobPortal\\Views\\Jobseeker\\Login.cshtml",
-      "TargetPath": "Views\\Jobseeker\\Login.cshtml",
+      "FilePath": "c:\\Users\\ramva\\Desktop\\Job Portal ASP\\JobPortal\\JobPortal\\Views\\Jobseeker\\JobDetail.cshtml",
+      "TargetPath": "Views\\Jobseeker\\JobDetail.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\ramva\\Desktop\\Job Portal ASP\\JobPortal\\JobPortal\\Views\\Jobseeker\\JobDetail.cshtml",
-      "TargetPath": "Views\\Jobseeker\\JobDetail.cshtml",
+      "FilePath": "c:\\Users\\ramva\\Desktop\\Job Portal ASP\\JobPortal\\JobPortal\\Views\\Shared\\_JobseekerAccountSidebar.cshtml",
+      "TargetPath": "Views\\Shared\\_JobseekerAccountSidebar.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\ramva\\Desktop\\Job Portal ASP\\JobPortal\\JobPortal\\Views\\Shared\\_EmployerLayout.cshtml",
+      "TargetPath": "Views\\Shared\\_EmployerLayout.cshtml",
       "FileKind": "mvc"
     }
   ],

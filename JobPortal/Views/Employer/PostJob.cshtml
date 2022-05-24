@@ -1,0 +1,77 @@
+﻿@{
+    ViewData["Title"] = "Post Jobs";
+    Layout = "~/Views/Shared/_EmployerLayout.cshtml";
+}
+
+<div class="account-page-container">
+
+    <partial name="_EmployerAccountSidebar" />
+
+    <div class="job-post-container">
+
+        <form class="job-post-box">
+
+            <h3 class="heading">post a job</h3>
+
+            <div class="input-container">
+
+                <div class="input-filed">
+                    <h5 class="input-title">Job Category</h5>
+                    <select id="category" required>
+                        <option selected disabled>Select Category</option>
+                        <option value="cat1">cat1</option>
+                        <option value="cat1">cat2</option>
+                        <option value="cat1">cat3</option>
+                        <option value="cat1">cat4</option>
+                    </select>
+                </div>
+                <div class="input-filed">
+                    <h5 class="input-title">Job Title</h5>
+                    <input type="text" required id="title" placeholder="Enter Job Title" />
+
+                </div>
+                <div class="input-filed">
+                    <h5 class="input-title">Location</h5>
+                    <input type="text" required id="location" placeholder="Enter Job Location" />
+
+                </div>
+                <div class="input-filed">
+                    <h5 class="input-title">Experience</h5>
+                    <input type="text" required id="experience" placeholder="1 Year " />
+
+                </div>
+                <div class="input-filed" style="grid-column: span 2;">
+                    <h5 class="input-title">Job Skills</h5>
+                    <input type="text" required id="skills" placeholder="PHP, JAVA, Communication" />
+
+                </div>
+                <div class="input-filed">
+                    <h5 class="input-title">Job Salary</h5>
+                    <input type="text" required placeholder="Enter Monthly Salary" id="salary" />
+                </div>
+
+                <div class="input-filed">
+                    <h5 class="input-title">Job Type</h5>
+                    <select id="jobType" required>
+                        <option value="">Select Job Type</option>
+                        <option value="Full Time">Full Time</option>
+                        <option value="Part Time">Part Time</option>
+                    </select>
+                </div>
+
+                <div class="input-filed" style="grid-column: span 2;">
+                    <h5 class="input-title">Education</h5>
+                    <input type="text" required placeholder="Enter Require Education" id="education" />
+                </div>
+
+
+            </div>
+
+            <button class="submit-btn" type="submit">Post Job</button>
+
+        </form>
+
+    </div>
+
+
+</div>

@@ -528,6 +528,9 @@ html {
                 font-size: 1rem;
                 cursor: pointer;
                 transition: 0.3s;
+                display: flex;
+                align-items: center;
+                flex-wrap: nowrap;
                 &:hover {
                     background-color: $darkPrimary;
                 }
@@ -1714,4 +1717,19 @@ html {
             }
         }
     }
+}
+
+.error-msg {
+    color: red;
+    font-weight: 400;
+    display: block;
+    margin-left: 10px;
+    margin-top: 6px;
+    font-size: 0.95rem;
+}
+
+#myLoader {
+    margin-left: 10px;
+    display: block;
+    display: none;
 }

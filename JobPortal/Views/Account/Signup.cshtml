@@ -1,0 +1,92 @@
+﻿@model JobPortal.Models.MySignup
+@{
+    ViewData["Title"] = "SignUp";
+    Layout = "~/Views/Shared/_JobseekerLayout.cshtml";
+}
+
+
+<div class="signup-page-container">
+
+
+    <form class="login-form" asp-action="SignupRequest" method="post" data-ajax-loading="#myLoader" data-ajax="true" data-ajax-complete="myComplete" data-ajax-success="mySuccess" data-ajax-failure="myFailure">
+
+        <h1 class="title">Sign Up</h1>
+
+        <p class="sub-title">Enter Your Personal Details :</p>
+
+        <div class="input-filed">
+            <input asp-for="username" type="text" placeholder="User Name" data-requiredError="User Name Filed Is Required" name="username"
+                   id="username" required />
+            <span asp-validation-for="username" class="error-msg"></span>
+        </div>
+
+        <div class="input-filed">
+            <input asp-for="email" id="email" name="email"
+                   placeholder="Email Address" required />
+            <span asp-validation-for="email" class="error-msg"></span>
+        </div>
+
+        <div class="input-filed">
+            <input id="password" name="password" asp-for="password"
+                   placeholder="Password" required />
+            <span asp-validation-for="password" class="error-msg"></span>
+        </div>
+        <div class="input-filed">
+            <input id="ConPassword" name="conPassword" asp-for="conPassword"
+                   placeholder="Conform Password" required />
+            <span asp-validation-for="conPassword" class="error-msg"></span>
+        </div>
+
+        <div class="input-filed">
+            <select class="form-select" label="Select Account Type" required asp-for="groupId">
+                <option value="0" disabled selected>Please Select Account Type</option>
+                <option value="2">JobSeeker</option>
+                <option value="3">Employer</option>
+            </select>
+            <span asp-validation-for="groupId" class="error-msg"></span>
+        </div>
+
+        <div class="btn">
+            <a href="/Login" class="forgot-link">
+                Already Have An Account !
+            </a>
+            <button class="signup-submit" type="submit">
+                SignUp
+                <i class="fas fa-spinner fa-spin" id="myLoader"></i>
+            </button>
+        </div>
+
+    </form>
+
+</div>
+
+
+@section Scripts
+{
+
+    @if (TempData["SignupFailed"] != null)
+    {
+        <script>
+            toastr.error('@TempData["SignupFailed"]');
+        </script>
+    }
+
+    <script>
+
+        function mySuccess(data) {
+
+            if (data) {
+                location.replace("/Login");
+            } else {
+                location.reload();
+            }
+
+        }
+
+        function myFailure(data) {
+            alert("Error : " + data.status);
+        }
+
+    </script>
+
+}

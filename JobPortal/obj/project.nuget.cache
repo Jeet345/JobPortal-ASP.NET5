@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "EM4jjtQk49cBmVjZ48X05xGjvDZ+ccH1MAyTJfmElr2W+UDREHqnKbVaLnEfPqNlaifzI1i1P3DT2n41YrTKXg==",
+  "dgSpecHash": "6TBRdJs/nzhlqVPGi3+6snbkyDY+9MzO3uLsAVgTYQ/TUBq9S040D6z1jlkn5meQOoU/fXVGdu8lF0a6wQJmSw==",
   "success": true,
   "projectFilePath": "C:\\Users\\ramva\\Desktop\\Job Portal ASP\\JobPortal\\JobPortal\\JobPortal.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\ramva\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\ramva\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\ramva\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\ramva\\.nuget\\packages\\microsoft.aspnetcore.razor\\2.2.0\\microsoft.aspnetcore.razor.2.2.0.nupkg.sha512",
