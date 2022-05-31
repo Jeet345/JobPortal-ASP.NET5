@@ -2,25 +2,25 @@
 <div class="sidebar">
     <h1 class="name">Jeet B.</h1>
     <ul>
-        <li class="">
+        <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Account" ? "active" : "")">
             <a href="/Employer/Account">
                 <span class="icon"><i class="fas fa-user"></i></span>
                 <span class="title">Profile</span>
             </a>
         </li>
-        <li class="">
+        <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "ManageJobs" ? "active" : "")">
             <a href="/Employer/ManageJobs">
                 <span class="icon"><i class="fas fa-briefcase"></i></span>
                 <span class="title">Manage Jobs</span>
             </a>
         </li>
-        <li class="">
+        <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "PostJob" ? "active" : "")">
             <a href="/Employer/PostJob">
                 <span class="icon"><i class="fas fa-briefcase"></i></span>
                 <span class="title">Post Jobs</span>
             </a>
         </li>
-        <li class="">
+        <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "ChangePassword" ? "active" : "")">
             <a href="/Account/ChangePassword">
                 <span class="icon"><i class="fas fa-key"></i></span>
                 <span class="title">Change Password</span>

@@ -2,14 +2,14 @@
 <div class="sidebar">
     <h1 class="name">Jeet B.</h1>
     <ul>
-        <li class="">
+        <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Account" ? "active" : "")">
             <a href="/Jobseeker/Account">
                 <span class="icon"><i class="fas fa-user"></i></span>
                 <span class="title">Profile</span>
             </a>
         </li>
-        <li class="">
-            <a href="/JobseekerAppliedJobs">
+        <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "AppliedJobs" ? "active" : "")">
+            <a href="/Jobseeker/AppliedJobs">
                 <span class="icon"><i class="fas fa-briefcase"></i></span>
                 <span class="title">Applied Jobs</span>
             </a>
@@ -20,12 +20,13 @@
                                 <span class="title">My Resume</span>
                             </a>
                         </li>-->
-        <li class="">
+        <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "ChangePassword" ? "active" : "")">
             <a href="/Account/ChangePassword">
                 <span class="icon"><i class="fas fa-key"></i></span>
                 <span class="title">Change Password</span>
             </a>
         </li>
+
         <li>
             <a href="/logout">
                 <span class="icon"><i class="fas fa-sign-out-alt"></i></span>

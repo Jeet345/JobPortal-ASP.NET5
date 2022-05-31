@@ -1,4 +1,6 @@
-﻿@{
+﻿@model JobPortal.Models.Job
+
+@{
     ViewData["Title"] = "Post Jobs";
     Layout = "~/Views/Shared/_EmployerLayout.cshtml";
 }
@@ -9,7 +11,7 @@
 
     <div class="job-post-container">
 
-        <form class="job-post-box">
+        <form class="job-post-box" asp-action="PostJobRequest" method="post" data-ajax-loading="#myLoader" data-ajax="true" data-ajax-complete="myComplete" data-ajax-success="mySuccess" data-ajax-failure="myFailure">
 
             <h3 class="heading">post a job</h3>
 
@@ -17,57 +19,63 @@
 
                 <div class="input-filed">
                     <h5 class="input-title">Job Category</h5>
-                    <select id="category" required>
+                    <select id="category" required asp-for="JobCategoryId" name="JobCategoryId">
                         <option selected disabled>Select Category</option>
-                        <option value="cat1">cat1</option>
-                        <option value="cat1">cat2</option>
-                        <option value="cat1">cat3</option>
-                        <option value="cat1">cat4</option>
+                        @foreach (var category in ViewData["Category"] as List<Category>)
+                        {
+                            <option value="@category.Id">@category.CategoryName</option>
+                        }
                     </select>
+                    <span asp-validation-for="JobCategoryId" class="error-msg"></span>
                 </div>
                 <div class="input-filed">
                     <h5 class="input-title">Job Title</h5>
-                    <input type="text" required id="title" placeholder="Enter Job Title" />
-
+                    <input type="text" required id="title" asp-for="JobTitle" name="JobTitle" placeholder="Enter Job Title" />
+                    <span asp-validation-for="JobTitle" class="error-msg"></span>
                 </div>
                 <div class="input-filed">
                     <h5 class="input-title">Location</h5>
-                    <input type="text" required id="location" placeholder="Enter Job Location" />
-
+                    <input type="text" required id="location" asp-for="JobLocation" name="JobLocation" placeholder="Enter Job Location" />
+                    <span asp-validation-for="JobLocation" class="error-msg"></span>
                 </div>
                 <div class="input-filed">
                     <h5 class="input-title">Experience</h5>
-                    <input type="text" required id="experience" placeholder="1 Year " />
-
+                    <input type="text" required id="experience" asp-for="JobExperience" name="JobExperience" placeholder="1 Year " />
+                    <span asp-validation-for="JobExperience" class="error-msg"></span>
                 </div>
                 <div class="input-filed" style="grid-column: span 2;">
                     <h5 class="input-title">Job Skills</h5>
-                    <input type="text" required id="skills" placeholder="PHP, JAVA, Communication" />
-
+                    <input type="text" required id="skills" asp-for="JobSkills" name="JobSkills" placeholder="PHP, JAVA, Communication" />
+                    <span asp-validation-for="JobSkills" class="error-msg"></span>
                 </div>
                 <div class="input-filed">
                     <h5 class="input-title">Job Salary</h5>
-                    <input type="text" required placeholder="Enter Monthly Salary" id="salary" />
+                    <input type="text" required asp-for="JobSalary" placeholder="Enter Monthly Salary" name="JobSalary" id="salary" />
+                    <span asp-validation-for="JobSalary" class="error-msg"></span>
                 </div>
 
                 <div class="input-filed">
                     <h5 class="input-title">Job Type</h5>
-                    <select id="jobType" required>
-                        <option value="">Select Job Type</option>
+                    <select id="jobType" required name="JobType" asp-for="JobType">
+                        <option selected disabled>Select Job Type</option>
                         <option value="Full Time">Full Time</option>
                         <option value="Part Time">Part Time</option>
                     </select>
+                    <span asp-validation-for="JobType" class="error-msg"></span>
                 </div>
 
                 <div class="input-filed" style="grid-column: span 2;">
                     <h5 class="input-title">Education</h5>
-                    <input type="text" required placeholder="Enter Require Education" id="education" />
+                    <input type="text" required asp-for="JobEducation" placeholder="Enter Require Education" name="JobEducation" id="education" />
+                    <span asp-validation-for="JobEducation" class="error-msg"></span>
                 </div>
-
 
             </div>
 
-            <button class="submit-btn" type="submit">Post Job</button>
+            <button class="submit-btn" type="submit">
+                Post Job
+                <i class="fas fa-spinner fa-spin" id="myLoader"></i>
+            </button>
 
         </form>
 
@@ -75,3 +83,32 @@
 
 
 </div>
+
+
+@section Scripts
+{
+
+    <script>
+
+        function mySuccess(data) {
+
+            if (data) {
+                toastr.success('Job Posted Successfully.');
+            }
+            else {
+                toastr.error("Something Wan't Wrong !!");
+            }
+
+        }
+
+        function myFailure(data) {
+            alert("Error : " + data.status);
+        }
+
+        function myComplete(data) {
+            console.log(data);
+        }
+
+    </script>
+
+}

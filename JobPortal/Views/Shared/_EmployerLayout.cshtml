@@ -1,10 +1,13 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Http
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - JobPortal</title>
 
+    <link href="~/toastr.js/toastr.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="~/css/style.css" />
 
 </head>
@@ -20,27 +23,34 @@
                     </a>
                 </ul>
                 <ul class="menu">
-                    <li><a class="" href="/Employer">Home</a></li>
-                    <li><a class="" href="/Employer/AllJobs">Jobs</a></li>
-                    <li><a href="/Employer/About">About</a></li>
-                    <li><a class="" href="/Employer/Contact">Contact</a></li>
+                    <li><a class="@(ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")" href="/Employer">Home</a></li>
+                    <li><a class="@(ViewContext.RouteData.Values["Action"].ToString() == "AllJobs" ? "active" : "")" href="/Employer/AllJobs">Jobs</a></li>
+                    <li><a class="@(ViewContext.RouteData.Values["Action"].ToString() == "About" ? "active" : "")" href="/Employer/About">About</a></li>
+                    <li><a class="@(ViewContext.RouteData.Values["Action"].ToString() == "Contact" ? "active" : "")" href="/Employer/Contact">Contact</a></li>
                 </ul>
 
                 <ul class="account">
-                    <li>
-                        <a href="/Login">Login</a>
-                    </li>
-                    <li>
-                        <a href="/Signup">SignUp</a>
-                    </li>
-                    <li>
-                        <a href="/Logout">Logout</a>
-                    </li>
-                    <li>
-                        <a href="/Employer/Account">
-                            <i class="fas fa-user"></i>
-                        </a>
-                    </li>
+                    @if (Context.Session.GetString("userEmail") == null)
+                    {
+                        <li>
+                            <a href="/Login">Login</a>
+                        </li>
+                        <li>
+                            <a href="/Signup">SignUp</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li>
+                            <a href="/Logout">Logout</a>
+                        </li>
+                        <li>
+                            <a href="/Employer/Account">
+                                <i class="fas fa-user"></i>
+                            </a>
+                        </li>
+                    }
+
                 </ul>
             </div>
         </div>
@@ -170,6 +180,7 @@
     <script src="~/jquery-validate/jquery.validate.js"></script>
     <script src="~/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
     <script src="~/jquery-ajax-unobtrusive/jquery.unobtrusive-ajax.js"></script>
+    <script src="~/toastr.js/toastr.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
 
 

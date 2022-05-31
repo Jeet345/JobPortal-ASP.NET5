@@ -10,6 +10,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
+using JobPortal.Filters;
 
 namespace JobPortal
 {
@@ -25,7 +27,13 @@ namespace JobPortal
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews();
+            services.AddControllersWithViews(options =>
+            {
+                options.Filters.Add(new GlobalFilter(1));  // global filter
+            });
+
+            //services.AddControllersWithViews();
+
             services.AddDbContext<JobPortalDBContext>(o => o.UseSqlServer(Configuration.GetConnectionString("DBConnectionStrings")));
             services.AddSession(options =>
             {
@@ -38,6 +46,7 @@ namespace JobPortal
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -48,6 +57,14 @@ namespace JobPortal
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
+            //app.UseMiddleware<CustomMiddleware>(); // custom middleware
+
+            //app.Map("/Jobseeker/Account", b =>
+            //{
+            //    b.UseMiddleware<AccountMiddleware>();
+            //});
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
@@ -62,7 +79,10 @@ namespace JobPortal
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Jobseeker}/{action=Index}/{id?}");
+
             });
+
+
         }
     }
 }

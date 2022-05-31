@@ -1,4 +1,6 @@
-﻿@{
+﻿@model IEnumerable<JobPortal.Models.Job>
+
+@{
     ViewData["Title"] = "All Jobs";
     Layout = "~/Views/Shared/_JobseekerLayout.cshtml";
 }
@@ -30,170 +32,56 @@
 
 <div class="job-all-container">
 
-    <h1 class="title">101 JOBS FOUND</h1>
+    <h1 class="title">@Model.Count() JOBS FOUND</h1>
 
     <div class="job-list-container">
 
-        <div class="job-box">
-            <div class="col-1">
-                <div class="desc">
-                    <a href="job-detail.jsf?jobId=#{job.id}" class="job-title">This is job title</a>
-                    <h4 class="row-2">
-                        <a href="">
-                            <span class="icon">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </span>
-                            Surat
-                        </a>
-                        <a href="">
-                            <span class="icon">
-                                <i class="far fa-bookmark"></i>
-                            </span>
-                            Full Time
-                        </a>
-                        <a href="">
-                            <span class="icon">
-                                <i class="far fa-clock"></i>
-                            </span>
-                            Published on 12 Jan 2022
-                        </a>
-                    </h4>
+
+        @foreach (var item in Model)
+        {
+            <div class="job-box">
+                <div class="col-1">
+                    <div class="desc">
+                        <a href="JobDetail/@item.Id" class="job-title">@item.JobTitle</a>
+                        <h4 class="row-2">
+                            <a href="">
+                                <span class="icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </span>
+                                @item.JobLocation
+                            </a>
+                            <a href="">
+                                <span class="icon">
+                                    <i class="far fa-bookmark"></i>
+                                </span>
+                                @item.JobType
+                            </a>
+                            <a href="">
+                                <span class="icon">
+                                    <i class="far fa-clock"></i>
+                                </span>
+                                Published on @item.JobPostingDate
+                            </a>
+                        </h4>
+                    </div>
+                    <a href="#" class="fav-btn">
+                        <i class="fal fa-heart"></i>
+                    </a>
                 </div>
-                <a href="#" class="fav-btn">
-                    <i class="fal fa-heart"></i>
-                </a>
+
+                <div class="col-2">
+                    <h4 class="job-type">
+                        @item.JobType
+                    </h4>
+                    <h2 class="salary">
+                        @item.JobSalary
+                        &#8377;
+                    </h2>
+                </div>
             </div>
 
-            <div class="col-2">
-                <h4 class="job-type">
-                    Full Time
-                </h4>
-                <h2 class="salary">
-                    120000
-                    &#8377;
-                </h2>
-            </div>
-        </div>
-        <div class="job-box">
-            <div class="col-1">
-                <div class="desc">
-                    <a href="job-detail.jsf?jobId=#{job.id}" class="job-title">This is job title</a>
-                    <h4 class="row-2">
-                        <a href="">
-                            <span class="icon">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </span>
-                            Surat
-                        </a>
-                        <a href="">
-                            <span class="icon">
-                                <i class="far fa-bookmark"></i>
-                            </span>
-                            Full Time
-                        </a>
-                        <a href="">
-                            <span class="icon">
-                                <i class="far fa-clock"></i>
-                            </span>
-                            Published on 12 Jan 2022
-                        </a>
-                    </h4>
-                </div>
-                <a href="#" class="fav-btn">
-                    <i class="fal fa-heart"></i>
-                </a>
-            </div>
+        }
 
-            <div class="col-2">
-                <h4 class="job-type">
-                    Full Time
-                </h4>
-                <h2 class="salary">
-                    120000
-                    &#8377;
-                </h2>
-            </div>
-        </div>
-        <div class="job-box">
-            <div class="col-1">
-                <div class="desc">
-                    <a href="job-detail.jsf?jobId=#{job.id}" class="job-title">This is job title</a>
-                    <h4 class="row-2">
-                        <a href="">
-                            <span class="icon">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </span>
-                            Surat
-                        </a>
-                        <a href="">
-                            <span class="icon">
-                                <i class="far fa-bookmark"></i>
-                            </span>
-                            Full Time
-                        </a>
-                        <a href="">
-                            <span class="icon">
-                                <i class="far fa-clock"></i>
-                            </span>
-                            Published on 12 Jan 2022
-                        </a>
-                    </h4>
-                </div>
-                <a href="#" class="fav-btn">
-                    <i class="fal fa-heart"></i>
-                </a>
-            </div>
-
-            <div class="col-2">
-                <h4 class="job-type">
-                    Full Time
-                </h4>
-                <h2 class="salary">
-                    120000
-                    &#8377;
-                </h2>
-            </div>
-        </div>
-        <div class="job-box">
-            <div class="col-1">
-                <div class="desc">
-                    <a href="job-detail.jsf?jobId=#{job.id}" class="job-title">This is job title</a>
-                    <h4 class="row-2">
-                        <a href="">
-                            <span class="icon">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </span>
-                            Surat
-                        </a>
-                        <a href="">
-                            <span class="icon">
-                                <i class="far fa-bookmark"></i>
-                            </span>
-                            Full Time
-                        </a>
-                        <a href="">
-                            <span class="icon">
-                                <i class="far fa-clock"></i>
-                            </span>
-                            Published on 12 Jan 2022
-                        </a>
-                    </h4>
-                </div>
-                <a href="#" class="fav-btn">
-                    <i class="fal fa-heart"></i>
-                </a>
-            </div>
-
-            <div class="col-2">
-                <h4 class="job-type">
-                    Full Time
-                </h4>
-                <h2 class="salary">
-                    120000
-                    &#8377;
-                </h2>
-            </div>
-        </div>
 
     </div>
 

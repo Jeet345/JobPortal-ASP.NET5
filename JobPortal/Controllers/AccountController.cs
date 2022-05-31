@@ -1,4 +1,5 @@
-﻿using JobPortal.Models;
+﻿using JobPortal.Filters;
+using JobPortal.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -8,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace JobPortal.Controllers
 {
+    [AccountFilter]
     public class AccountController : Controller
     {
         private readonly JobPortalDBContext _context;
@@ -28,19 +30,28 @@ namespace JobPortal.Controllers
         {
             if (ModelState.IsValid)
             {
-                var query = _context.Users
-                    .Where(u => u.Email == myLogin.email)
-                    .Select(u => u.Password)
-                    .FirstOrDefault();
+                var query = (from u in _context.Users
+                             join g in _context.Groups on u.GroupId equals g.GroupId
+                             where g.GroupId == u.GroupId
+                             where u.Email == myLogin.email
+                             select new { 
+                                 userId = u.Id,
+                                 Email = u.Email, 
+                                 GroupName = g.GroupName,
+                                 Password = u.Password
+                             })
+                            .FirstOrDefault();
 
-                if (!String.IsNullOrEmpty(query))
+                if (query != null)
                 {
-                    bool passwordCheck = BCrypt.Net.BCrypt.Verify(myLogin.password, query.ToString());
+                    bool passwordCheck = BCrypt.Net.BCrypt.Verify(myLogin.password, query.Password.ToString());
 
                     if (passwordCheck)
                     {
                         TempData["loginSuccess"] = "Login Successfully..";
-                        HttpContext.Session.SetString("userEmail", myLogin.email);
+                        HttpContext.Session.SetString("userId", query.userId.ToString());
+                        HttpContext.Session.SetString("userEmail", query.Email);
+                        HttpContext.Session.SetString("groupName", query.GroupName);
                         return true;
                     }
                 }
@@ -94,7 +105,8 @@ namespace JobPortal.Controllers
         [Route("/Logout")]
         public IActionResult Logout()
         {
-            HttpContext.Session.Remove("userEmail");
+            //HttpContext.Session.Remove("userEmail");
+            HttpContext.Session.Clear();
             return Redirect("/Login");
         }
 

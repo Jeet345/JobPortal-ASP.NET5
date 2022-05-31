@@ -1,4 +1,6 @@
-﻿@{
+﻿@model JobPortal.Models.User
+
+@{
     ViewData["Title"] = "Account";
     Layout = "~/Views/Shared/_EmployerLayout.cshtml";
 }
@@ -9,51 +11,85 @@
 
     <div class="profile-container">
 
-        <form class="company-basic-info-box">
+        <form class="company-basic-info-box" asp-action="AccountRequest" method="post" data-ajax-loading="#myLoader" data-ajax="true" data-ajax-complete="myComplete" data-ajax-success="mySuccess" data-ajax-failure="myFailure">
 
             <h3 class="heading">BASIC INFORMATION</h3>
+
+            <input type="hidden" name="Id" asp-for="Id" />
 
             <div class="input-container">
                 <div class="input-filed">
                     <h5 class="input-title">Company Name</h5>
-                    <input type="text" required id="name" placeholder="XYZ Company" />
-
+                    <input type="text" required id="name" name="CompanyName" asp-for="CompanyName" placeholder="XYZ Company" />
+                    <span asp-validation-for="CompanyName" class="error-msg"></span>
                 </div>
                 <div class="input-filed">
                     <h5 class="input-title">Your Website</h5>
-                    <input type="text" required placeholder="xyz@domain.com" id="website" />
-
+                    <input type="text" required placeholder="xyz@domain.com" asp-for="Website" name="Website" id="website" />
+                    <span asp-validation-for="Website" class="error-msg"></span>
                 </div>
                 <div class="input-filed">
                     <h5 class="input-title">Your City</h5>
-                    <input type="text" required id="city" placeholder="Surat" />
-
+                    <input type="text" required id="city" placeholder="Surat" name="City" asp-for="City" />
+                    <span asp-validation-for="City" class="error-msg"></span>
                 </div>
                 <div class="input-filed">
                     <h5 class="input-title">Your State</h5>
-                    <input type="text" required id="state" placeholder="Gujarat" />
-
+                    <input type="text" required id="state" placeholder="Gujarat" name="State" asp-for="State" />
+                    <span asp-validation-for="State" class="error-msg"></span>
                 </div>
                 <div class="input-filed">
                     <h5 class="input-title">Your Country</h5>
-                    <input type="text" required id="country" placeholder="India" />
+                    <input type="text" required id="country" placeholder="India" name="Country" asp-for="Country" />
+                    <span asp-validation-for="Country" class="error-msg"></span>
                 </div>
                 <div class="input-filed textarea-filed">
                     <h5 class="input-title">Your Address</h5>
-                    <textarea placeholder="Enter Address" required id="address"></textarea>
+                    <textarea placeholder="Enter Address" asp-for="Address" name="Address" required id="address"></textarea>
+                    <span asp-validation-for="Address" class="error-msg"></span>
                 </div>
                 <div class="input-filed" style="grid-column: span 2">
                     <h5 class="input-title">About Company</h5>
-                    <textarea placeholder="Enter Description" required id="about"></textarea>
-
+                    <textarea placeholder="Enter Description" name="AboutCompany" asp-for="AboutCompany" required id="about"></textarea>
+                    <span asp-validation-for="AboutCompany" class="error-msg"></span>
                 </div>
             </div>
 
-            <button type="submit" class="submit-btn">Save Changes</button>
+            <button type="submit" class="submit-btn">
+                Save Changes
+                <i class="fas fa-spinner fa-spin" id="myLoader"></i>
+            </button>
 
         </form>
 
     </div>
 
-
 </div>
+
+@section Scripts
+{
+
+    <script>
+
+        function mySuccess(data) {
+
+            if (data) {
+                toastr.success('Changes Save Successfully.');
+            }
+            else {
+                toastr.error("Something Wan't Wrong !!");
+            }
+
+        }
+
+        function myFailure(data) {
+            alert("Error : " + data.status);
+        }
+
+        function myComplete(data) {
+            console.log(data);
+        }
+
+    </script>
+
+}

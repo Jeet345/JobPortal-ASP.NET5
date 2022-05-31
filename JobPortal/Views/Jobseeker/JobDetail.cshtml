@@ -1,4 +1,7 @@
-﻿@{
+﻿@using Microsoft.AspNetCore.Http
+@model JobPortal.Models.Job
+
+@{
     ViewData["Title"] = "Job Detail";
     Layout = "~/Views/Shared/_JobseekerLayout.cshtml";
 }
@@ -12,7 +15,7 @@
             <h1 class="title">Job Detail</h1>
 
             <h3 class="nav">
-                <a href="/JobRest">Home</a>
+                <a href="/">Home</a>
                 <span class="icon"><i class="fas fa-angle-right"></i></span>
                 <span>Job Detail</span>
             </h3>
@@ -32,39 +35,39 @@
             <div class="icon"><i class="fal fa-map-marker-alt"></i></div>
             <div class="desc">
                 <h4>Address</h4>
-                <p>Surat</p>
+                <p>@Model.JobLocation</p>
             </div>
         </div>
         <div class="box">
             <div class="icon"><i class="fal fa-dollar-sign"></i></div>
             <div class="desc">
                 <h4>Salary</h4>
-                <p>50000 &#8377; Monthly</p>
+                <p>@Model.JobSalary &#8377; Monthly</p>
             </div>
         </div>
         <div class="box">
             <div class="icon"><i class="far fa-shield"></i></div>
             <div class="desc">
                 <h4>Experience</h4>
-                <p>1 Year</p>
+                <p>@Model.JobExperience</p>
             </div>
         </div>
     </div>
 
     <div class="detail-box">
-        <h1 class="job-title">Software Engineear</h1>
+        <h1 class="job-title">@Model.JobTitle</h1>
         <div class="title-line">
             <li>
                 <b>Job Type</b>
-                Full Time
+                @Model.JobType
             </li>
             <li>
                 <b>Posting Date</b>
-                12 Aug 2019
+                @Model.JobPostingDate
             </li>
             <li>
                 <b><i class="fal fa-map-marker-alt"></i></b>
-                Surat
+                @Model.JobLocation
             </li>
         </div>
         <p class="detail">
@@ -97,7 +100,7 @@
             <h2 class="title">Job SkillSet</h2>
 
             <p class="detail">
-                Html, css, Javascript, .net5, android
+                @Model.JobSkills
             </p>
         </div>
 
@@ -105,13 +108,19 @@
             <h2 class="title">Job Qualifications</h2>
 
             <p class="detail">
-                Any Computer Degree
+                @Model.JobEducation
             </p>
         </div>
 
         <form>
-            <button type="submit" class="job-btn">Apply This Job</button>
-            <a href="/Jobseeker/Login" class="job-btn">Login To Apply Job</a>
+            @if (!String.IsNullOrEmpty(Context.Session.GetString("userId")))
+            {
+                <button type="submit" class="job-btn">Apply This Job</button>
+            }
+            else
+            {
+                <a href="/Login" class="job-btn">Login To Apply Job</a>
+            }
         </form>
 
     </div>

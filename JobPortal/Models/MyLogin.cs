@@ -16,5 +16,7 @@ namespace JobPortal.Models
         [DataType(DataType.Password)]
         public string password { get; set; }
 
+        public int groupId { get; set; }
+
     }
 }

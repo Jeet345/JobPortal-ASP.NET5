@@ -1,4 +1,6 @@
-﻿@{
+﻿@model JobPortal.Models.User
+
+@{
     ViewData["Title"] = "Account";
     Layout = "~/Views/Shared/_JobseekerLayout.cshtml";
 }
@@ -9,339 +11,391 @@
 
     <div class="profile-container">
 
-        <form class="basic-info-box">
+        <form class="basic-info-box" asp-action="AccountRequest" method="post" data-ajax-loading="#myLoader" data-ajax="true" data-ajax-complete="myComplete" data-ajax-success="mySuccess" data-ajax-failure="myFailure">
 
             <h3 class="heading">BASIC INFORMATION</h3>
+
+            <input type="hidden" name="Id" asp-for="Id" />
 
             <div class="input-container">
                 <div class="input-filed">
                     <h5 class="input-title">Your Name</h5>
-                    <input type="text" required id="name" name="name" placeholder="Jeet Mendpara" />
+                    <input type="text" id="name" asp-for="Name" name="Name" placeholder="Jeet Mendpara" />
+                    <span asp-validation-for="Name" class="error-msg"></span>
                 </div>
                 <div class="input-filed">
-                    <h5 class="input-title">Your DOB</h5>
-                    <input type="date" required id="date" name="date" />
-                </div>
-                <div class="input-filed">
-                    <h5 class="input-title">Your City</h5>
-                    <input type="text" required id="city" placeholder="Surat" name="city" />
-                </div>
-                <div class="input-filed">
-                    <h5 class="input-title">Your State</h5>
-                    <input type="text" required id="state" placeholder="Gujarat" name="state" />
-                </div>
-                <div class="input-filed">
-                    <h5 class="input-title">Your Country</h5>
-                    <input type="text" required id="country" placeholder="India" name="country" />
-                </div>
-                <div class="input-filed">
-                    <h5 class="input-title">Your Gender</h5>
-                    <select name="gender" id="gender">
-                        <option>Male</option>
-                        <option>Female</option>
-                        <option>Others</option>
-                    </select>
-                </div>
-                <div class="input-filed">
-                    <h5 class="input-title">Languages Known</h5>
-                    <input type="text" required id="languages" placeholder="English, Hindi, Gujarati" name="languages" />
-                </div>
-                <div class="input-filed">
-                    <h5 class="input-title">Work Status</h5>
+                        <h5 class="input-title">Your DOB</h5>
+                        <input type="date" required id="Date" asp-for="Dob" name="dob" />
+                        <span asp-validation-for="Dob" class="error-msg"></span>
+                    </div>
+                    <div class="input-filed">
+                        <h5 class="input-title">Your City</h5>
+                        <input type="text" required id="city" asp-for="City" placeholder="Surat" name="City" />
+                        <span asp-validation-for="City" class="error-msg"></span>
+                    </div>
+                    <div class="input-filed">
+                        <h5 class="input-title">Your State</h5>
+                        <input type="text" required id="state" asp-for="State" placeholder="Gujarat" name="State" />
+                        <span asp-validation-for="State" class="error-msg"></span>
+                    </div>
+                    <div class="input-filed">
+                        <h5 class="input-title">Your Country</h5>
+                        <input type="text" required id="country" asp-for="Country" placeholder="India" name="Country" />
+                        <span asp-validation-for="Country" class="error-msg"></span>
+                    </div>
+                    <div class="input-filed">
+                        <h5 class="input-title">Your Gender</h5>
+                        <select name="Gender" asp-for="Gender" id="gender">
+                            <option value="0" selected disabled>Please Select Gender</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Others">Others</option>
+                        </select>
+                        <span asp-validation-for="Gender" class="error-msg"></span>
+                    </div>
+                    <div class="input-filed">
+                        <h5 class="input-title">Languages Known</h5>
+                        <input type="text" required id="languages" asp-for="Languages" placeholder="English, Hindi, Gujarati" name="Languages" />
+                        <span asp-validation-for="Languages" class="error-msg"></span>
+                    </div>
+                    <div class="input-filed">
+                        <h5 class="input-title">Work Status</h5>
 
-                    <div class="radio-btn">
-                        <input type="radio" name="workStatus" id="partTime" value="Part Time" />
-                        <label for="partTime">Part Time</label>
+                        <div class="radio-btn">
+                            <input type="radio" name="WorkStatus" asp-for="WorkStatus" id="partTime" value="Part Time" />
+                            <label for="partTime">Part Time</label>
+                        </div>
+
+                        <div class="radio-btn">
+                            <input type="radio" name="WorkStatus" asp-for="WorkStatus" id="fullTime" value="Full Time" />
+                            <label for="fullTime">Full Time</label>
+                        </div>
+                        <span asp-validation-for="WorkStatus" class="error-msg"></span>
                     </div>
 
-                    <div class="radio-btn">
-                        <input type="radio" name="workStatus" id="fullTime" value="Full Time" />
-                        <label for="fullTime">Full Time</label>
+                    <div class="input-filed textarea-filed">
+                        <h5 class="input-title">Your Address</h5>
+                        <textarea placeholder="Enter Address" asp-for="Address" required id="address" name="Address"></textarea>
+                        <span asp-validation-for="Address" class="error-msg"></span>
                     </div>
-                </div>
-
-                <div class="input-filed textarea-filed">
-                    <h5 class="input-title">Your Address</h5>
-                    <textarea placeholder="Enter Address" required id="address" name="address"></textarea>
-                </div>
             </div>
-            <button type="submit" class="submit-btn">Save Changes</button>
+            <button type="submit" class="submit-btn">
+                Save Changes
+                <i class="fas fa-spinner fa-spin" id="myLoader"></i>
+            </button>
 
         </form>
 
         <form class="education-info-box">
 
-            <h3 class="heading">
-                Education Information
-                <span class="edit-btn">
-                    <span>
-                        <i class="fas fa-pencil"></i>
+
+                <h3 class="heading">
+                    Education Information
+                    <span class="edit-btn">
+                        <span>
+                            <i class="fas fa-pencil"></i>
+                        </span>
+                        Edit
                     </span>
-                    Edit
-                </span>
-            </h3>
+                </h3>
 
-            <div class="detail-box">
-                <h4>
-                    Msc-ICT
-                    -
-                    VNSGU
-                </h4>
+                @foreach (var edu in Model.JobSeekerEducations)
+                {
 
-                <h5>
-                    2023
-                </h5>
+                    <div class="detail-box">
+                        <h4>
+                            Msc-ICT
+                            @edu.Education
+                            -
+                            @edu.University
+                        </h4>
 
-                <h6>
-                    Marks :
-                    8.12
-                    %
-                </h6>
-            </div>
+                        <h5>
+                            @edu.PassingYear
+                        </h5>
 
+                        <h6>
+                            Marks :
+                            @edu.Marks
+                            %
+                        </h6>
+                    </div>
+                }
 
-        </form>
+            </form>
 
-        <form class="experience-info-box">
+            <form class="experience-info-box">
 
-            <h3 class="heading">
-                Experience Information
-                <span class="edit-btn">
-                    <span>
-                        <i class="fas fa-pencil"></i>
+                <h3 class="heading">
+                    Experience Information
+                    <span class="edit-btn">
+                        <span>
+                            <i class="fas fa-pencil"></i>
+                        </span>
+                        Edit
                     </span>
-                    Edit
-                </span>
-            </h3>
+                </h3>
 
+                @foreach (var exp in Model.JobSeekerExperiences)
+                {
 
-            <div class="detail-box">
-                <h4>
-                    Software Engineear
-                </h4>
-                <h5>
-                    Adsum Originator
-                </h5>
-                <h5>
-                    2 Year
-                </h5>
-                <h5>
-                    with 120000 Salary Per Month
-                </h5>
-            </div>
+                    <div class="detail-box">
+                        <h4>
+                            @exp.Designation
+                        </h4>
+                        <h5>
+                            @exp.Organization
+                        </h5>
+                        <h5>
+                            @exp.Experience
+                        </h5>
+                        <h5>
+                            with @exp.Salary Salary Per Month
+                        </h5>
+                    </div>
 
+                }
 
+            </form>
 
-        </form>
+            <form class="project-info-box">
 
-        <form class="project-info-box">
-
-            <h3 class="heading">
-                Project Information
-                <span class="edit-btn">
-                    <span>
-                        <i class="fas fa-pencil"></i>
+                <h3 class="heading">
+                    Project Information
+                    <span class="edit-btn">
+                        <span>
+                            <i class="fas fa-pencil"></i>
+                        </span>
+                        Edit
                     </span>
-                    Edit
-                </span>
-            </h3>
+                </h3>
 
+                @foreach (var pro in Model.JobSeekerProjects)
+                {
+                    <div class="detail-box">
+                        <h4>@pro.ProjectTitle</h4>
+                        <h5>@pro.ProjectClient</h5>
+                        <h5>
+                            @pro.StartMonth
+                            to
+                            @pro.EndMonth
+                        </h5>
+                        <h5>with using @pro.ProjectSkilles</h5>
+                    </div>
+                }
+            </form>
 
-            <div class="detail-box">
-                <h4>This is project title</h4>
-                <h5>Project Client Name</h5>
-                <h5>
-                    10/2020
-                    to
-                    09/2019
-                </h5>
-                <h5>with using some html, css, javascript etc</h5>
-            </div>
+            <form class="skill-info-box">
 
-        </form>
-
-        <form class="skill-info-box">
-
-            <h3 class="heading">
-                Skills Information
-                <span class="edit-btn">
-                    <span>
-                        <i class="fas fa-pencil"></i>
+                <h3 class="heading">
+                    Skills Information
+                    <span class="edit-btn">
+                        <span>
+                            <i class="fas fa-pencil"></i>
+                        </span>
+                        Edit
                     </span>
-                    Edit
-                </span>
-            </h3>
+                </h3>
 
-            <ul class="skills">
-                <li>Javascript</li>
-                <li>Css</li>
-                <li>Html</li>
-                <li>Java</li>
-                <li>Php</li>
-                <li>C++</li>
-            </ul>
+                <ul class="skills">
+                    <li>Javascript</li>
+                    <li>Css</li>
+                    <li>Html</li>
+                    <li>Java</li>
+                    <li>Php</li>
+                    <li>C++</li>
+                </ul>
 
-        </form>
+            </form>
+
     </div>
 
     <div class="overlay-input-container">
 
-        <form class="education-input input-container">
-            <h1 class="input-header">
-                Education
-                <span class="close-btn">
-                    <i class="far fa-times"></i>
-                </span>
-            </h1>
-            <div class="input-box">
-                <div class="input-filed">
-                    <h5 class="input-title">Education</h5>
-                    <select name="education" id="education" class="selectMent" required>
-                        <option value="High School">High School</option>
-                        <option value="Under Graduation">Under Graduation</option>
-                        <option value="Post Graduation">Post Graduation</option>
-                        <option value="PhD/Doctorate">PhD/Doctorate</option>
-                    </select>
-                </div>
-                <div class="input-filed">
-                    <h5 class="input-title">Course</h5>
-                    <input type="text" id="cource" required placeholder="Enter Course" />
-                </div>
-                <div class="input-filed">
-                    <h5 class="input-title">University/Institute/Board</h5>
-                    <input type="text" id="university" required placeholder="Enter Institute Name" />
-                </div>
-                <div class="row">
+            <form class="education-input input-container" asp-action="EditRequest">
+                <h1 class="input-header">
+                    Education
+                    <span class="close-btn">
+                        <i class="far fa-times"></i>
+                    </span>
+                </h1>
+                <div class="input-box">
                     <div class="input-filed">
-                        <h5 class="input-title">Passing Year</h5>
-                        <input type="number" id="passingYear" required placeholder="Enter Passing Year" />
+                        <h5 class="input-title">Education</h5>
+                        <select name="education" id="education" class="selectMent" required>
+                            <option value="High School">High School</option>
+                            <option value="Under Graduation">Under Graduation</option>
+                            <option value="Post Graduation">Post Graduation</option>
+                            <option value="PhD/Doctorate">PhD/Doctorate</option>
+                        </select>
                     </div>
-
                     <div class="input-filed">
-                        <h5 class="input-title">Enter Marks</h5>
-                        <input type="number" min="0" max="99" id="marks" required placeholder="Enter Percentage" />
+                        <h5 class="input-title">Course</h5>
+                        <input type="text" id="cource" required placeholder="Enter Course" />
                     </div>
-
-                </div>
-
-            </div>
-
-            <div class="input-footer">
-                <button type="submit" class="save-btn">Save</button>
-            </div>
-        </form>
-
-
-
-
-        <form class="experience-input input-container">
-            <h1 class="input-header">
-                Experience
-                <span class="close-btn">
-                    <i class="far fa-times"></i>
-                </span>
-            </h1>
-            <div class="input-box">
-                <div class="input-filed">
-                    <h5 class="input-title">Your Designation</h5>
-                    <input type="text" id="designation" required placeholder="Enter Your Designation" />
-                </div>
-                <div class="input-filed">
-                    <h5 class="input-title">Your Organization</h5>
-                    <input type="text" id="organization" required placeholder="Enter Your Organization" />
-                </div>
-                <div class="input-filed">
-                    <h5 class="input-title">Your Experience</h5>
-                    <input type="text" id="experience" required placeholder="Enter Your Experience" />
-                </div>
-                <div class="row">
-
                     <div class="input-filed">
-                        <h5 class="input-title">Started Working From</h5>
-                        <input type="date" id="workingFrom" required />
+                        <h5 class="input-title">University/Institute/Board</h5>
+                        <input type="text" id="university" required placeholder="Enter Institute Name" />
+                    </div>
+                    <div class="row">
+                        <div class="input-filed">
+                            <h5 class="input-title">Passing Year</h5>
+                            <input type="number" id="passingYear" required placeholder="Enter Passing Year" />
+                        </div>
+
+                        <div class="input-filed">
+                            <h5 class="input-title">Enter Marks</h5>
+                            <input type="number" min="0" max="99" id="marks" required placeholder="Enter Percentage" />
+                        </div>
+
                     </div>
 
+                </div>
+
+                <div class="input-footer">
+                    <button type="submit" class="save-btn">Save</button>
+                </div>
+            </form>
+
+
+
+
+            <form class="experience-input input-container">
+                <h1 class="input-header">
+                    Experience
+                    <span class="close-btn">
+                        <i class="far fa-times"></i>
+                    </span>
+                </h1>
+                <div class="input-box">
                     <div class="input-filed">
-                        <h5 class="input-title">Worked Till</h5>
-                        <input type="date" id="workedTill" required />
+                        <h5 class="input-title">Your Designation</h5>
+                        <input type="text" id="designation" required placeholder="Enter Your Designation" />
                     </div>
-
-                </div>
-                <div class="input-filed">
-                    <h5 class="input-title">Your Salary</h5>
-                    <input type="number" min="1000" id="salary" required placeholder="Enter Your Monthly Salary" />
-                </div>
-                <div class="input-filed">
-                    <h5 class="input-title">Describe your Job Profile</h5>
-                    <textarea id="jobProfile" placeholder="Type Description" required></textarea>
-                </div>
-
-
-            </div>
-            <div class="input-footer">
-                <button type="submit" class="save-btn">Save</button>
-            </div>
-        </form>
-
-
-
-        <form class="project-input input-container">
-            <h1 class="input-header">
-                Projects
-                <span class="close-btn">
-                    <i class="far fa-times"></i>
-                </span>
-            </h1>
-            <div class="input-box">
-                <div class="input-filed">
-                    <h5 class="input-title">Project Title</h5>
-                    <input type="text" required id="title" placeholder="Enter Project Title" />
-                </div>
-                <div class="input-filed">
-                    <h5 class="input-title">Project Client</h5>
-                    <input type="text" required id="client" placeholder="Enter Client Name" />
-                </div>
-                <div class="input-filed">
-                    <h5 class="input-title">Project Status</h5>
-
-                    <div class="radio-btn">
-                        <input type="radio" name="projectStatus" id="inProgress" value="inProgress" />
-                        <label for="inProgress">In Progress</label>
-                    </div>
-                    <div class="radio-btn">
-                        <input type="radio" name="projectStatus" id="finished" value="Finished" />
-                        <label for="finished">Finished</label>
-                    </div>
-                </div>
-                <div class="row">
-
                     <div class="input-filed">
-                        <h5 class="input-title">Started Working From</h5>
-                        <input type="date" required id="workingFrom" />
+                        <h5 class="input-title">Your Organization</h5>
+                        <input type="text" id="organization" required placeholder="Enter Your Organization" />
                     </div>
-
                     <div class="input-filed">
-                        <h5 class="input-title">Worked Till</h5>
-                        <input type="date" required id="workingTill" />
+                        <h5 class="input-title">Your Experience</h5>
+                        <input type="text" id="experience" required placeholder="Enter Your Experience" />
+                    </div>
+                    <div class="row">
+
+                        <div class="input-filed">
+                            <h5 class="input-title">Started Working From</h5>
+                            <input type="date" id="workingFrom" required />
+                        </div>
+
+                        <div class="input-filed">
+                            <h5 class="input-title">Worked Till</h5>
+                            <input type="date" id="workedTill" required />
+                        </div>
+
+                    </div>
+                    <div class="input-filed">
+                        <h5 class="input-title">Your Salary</h5>
+                        <input type="number" min="1000" id="salary" required placeholder="Enter Your Monthly Salary" />
+                    </div>
+                    <div class="input-filed">
+                        <h5 class="input-title">Describe your Job Profile</h5>
+                        <textarea id="jobProfile" placeholder="Type Description" required></textarea>
+                    </div>
+
+
+                </div>
+                <div class="input-footer">
+                    <button type="submit" class="save-btn">Save</button>
+                </div>
+            </form>
+
+
+
+            <form class="project-input input-container">
+                <h1 class="input-header">
+                    Projects
+                    <span class="close-btn">
+                        <i class="far fa-times"></i>
+                    </span>
+                </h1>
+                <div class="input-box">
+                    <div class="input-filed">
+                        <h5 class="input-title">Project Title</h5>
+                        <input type="text" required id="title" placeholder="Enter Project Title" />
+                    </div>
+                    <div class="input-filed">
+                        <h5 class="input-title">Project Client</h5>
+                        <input type="text" required id="client" placeholder="Enter Client Name" />
+                    </div>
+                    <div class="input-filed">
+                        <h5 class="input-title">Project Status</h5>
+
+                        <div class="radio-btn">
+                            <input type="radio" name="projectStatus" id="inProgress" value="inProgress" />
+                            <label for="inProgress">In Progress</label>
+                        </div>
+                        <div class="radio-btn">
+                            <input type="radio" name="projectStatus" id="finished" value="Finished" />
+                            <label for="finished">Finished</label>
+                        </div>
+                    </div>
+                    <div class="row">
+
+                        <div class="input-filed">
+                            <h5 class="input-title">Started Working From</h5>
+                            <input type="date" required id="workingFrom" />
+                        </div>
+
+                        <div class="input-filed">
+                            <h5 class="input-title">Worked Till</h5>
+                            <input type="date" required id="workingTill" />
+                        </div>
+
+                    </div>
+                    <div class="input-filed">
+                        <h5 class="input-title">Project Skills</h5>
+                        <input type="text" required id="skills" placeholder="Enter Your Skills" />
+                    </div>
+                    <div class="input-filed">
+                        <h5 class="input-title">Details of Project</h5>
+                        <textarea id="details" required placeholder="Type Description"></textarea>
                     </div>
 
                 </div>
-                <div class="input-filed">
-                    <h5 class="input-title">Project Skills</h5>
-                    <input type="text" required id="skills" placeholder="Enter Your Skills" />
+                <div class="input-footer">
+                    <button type="submit" class="save-btn">Save</button>
                 </div>
-                <div class="input-filed">
-                    <h5 class="input-title">Details of Project</h5>
-                    <textarea id="details" required placeholder="Type Description"></textarea>
-                </div>
+            </form>
 
-            </div>
-            <div class="input-footer">
-                <button type="submit" class="save-btn">Save</button>
-            </div>
-        </form>
-
-    </div>
+        </div>
 
 
 </div>
+
+@section Scripts
+{
+
+    <script>
+
+        function mySuccess(data) {
+
+            if (data) {
+                toastr.success('Changes Save Successfully.');
+            }
+            else {
+                toastr.error("Something Wan't Wrong !!");
+            }
+
+        }
+
+        function myFailure(data) {
+            alert("Error : " + data.status);
+        }
+
+        function myComplete(data) {
+            console.log(data);
+        }
+
+    </script>
+
+}
