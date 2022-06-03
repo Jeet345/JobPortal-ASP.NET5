@@ -1,10 +1,13 @@
 ﻿@using Microsoft.AspNetCore.Http
+@model IEnumerable<JobPortal.Models.Job>
 
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_JobseekerLayout.cshtml";
-}
 
+    IEnumerable<Category> categories = ViewData["category"] as IEnumerable<Category>;
+
+}
 
 <div class="job-search-container">
     <div class="inner-box">
@@ -17,40 +20,26 @@
                 <span> 50,000 </span>Open Jobs.
             </h1>
             <div class="input-box">
-                <form action="" method="post">
+                <form action="/Jobseeker/SearchJobs" method="get">
                     <div class="input-filed">
-                        <input type="text" placeholder="Job Title, KeyWord, Or Phrase" />
+                        <input type="text" placeholder="Job Title Or KeyWord" name="title" required/>
                         <span class="icon"><i class="fas fa-search"></i></span>
                     </div>
                     <div class="input-filed">
-                        <input type="text" placeholder="City, State or ZIP" />
+                        <input type="text" placeholder="Location" name="location"/>
                         <span class="icon"><i class="fas fa-map-marker-alt"></i></span>
                     </div>
                     <div class="input-filed">
                         <div class="select-box">
-                            <h4 class="select">Select Sector</h4>
+                            <input type="text" readonly class="select" placeholder="Select Category" name="category"/>
                             <span class="icon"><i class="fas fa-angle-down"></i></span>
                         </div>
                         <div class="option">
                             <a href="">Select Sector</a>
-                            <a href="">Option 1</a>
-                            <a href="">Option 2</a>
-                            <a href="">Option 3</a>
-                            <a href="">Option 4</a>
-                            <a href="">Option 5</a>
-                            <a href="">Option 6</a>
-                            <a href="">Option 7</a>
-                            <a href="">Option 8</a>
-                            <a href="">Option 9</a>
-                            <a href="">Option 2</a>
-                            <a href="">Option 3</a>
-                            <a href="">Option 4</a>
-                            <a href="">Option 5</a>
-                            <a href="">Option 6</a>
-                            <a href="">Option 7</a>
-                            <a href="">Option 8</a>
-                            <a href="">Option 9</a>
-                            <a href="">Option 10</a>
+                            @foreach (var item in categories)
+                            {
+                                <a href="">@item.CategoryName</a>
+                            }
                         </div>
                     </div>
                     <button type="submit" class="submit-btn">Find Job</button>
@@ -207,50 +196,53 @@
     <div class="job-list-container">
 
 
-        <div class="job-box">
+        @foreach (var item in Model)
+        {
+            <div class="job-box">
 
-            <div class="col-1">
-                <div class="img">
-                    <img class="logo" src="../images/logo1.jpg" />
+                <div class="col-1">
+                    <div class="img">
+                        <img class="logo" src="../images/logo1.jpg" />
+                    </div>
+                    <div class="desc">
+                        <a href="/Jobseeker/JobDetail/@item.Id" class="job-title">@item.JobTitle</a>
+                        <h4 class="row-2">
+                            <a href="">
+                                <span class="icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </span>
+                                @item.JobLocation
+                            </a>
+                            <a href="">
+                                <span class="icon">
+                                    <i class="far fa-bookmark"></i>
+                                </span>
+                                @item.JobType
+                            </a>
+                            <a href="">
+                                <span class="icon">
+                                    <i class="far fa-clock"></i>
+                                </span>
+                                Published On @item.JobPostingDate
+                            </a>
+                        </h4>
+
+                    </div>
+                    <a href="#" class="fav-btn">
+                        <i class="fal fa-heart"></i>
+                    </a>
+
                 </div>
-                <div class="desc">
-                    <a href="job-detail.jsf?jobId=#{data.id}" class="job-title">title</a>
-                    <h4 class="row-2">
-                        <a href="">
-                            <span class="icon">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </span>
-                            Surat
-                        </a>
-                        <a href="">
-                            <span class="icon">
-                                <i class="far fa-bookmark"></i>
-                            </span>
-                            FullTime
-                        </a>
-                        <a href="">
-                            <span class="icon">
-                                <i class="far fa-clock"></i>
-                            </span>
-                            Published On 12/08/2019
-                        </a>
-                    </h4>
+
+                <div class="col-2">
+
+                    <h4 class="job-type">@item.JobType</h4>
+
+                    <h2 class="salary">@item.JobSalary &#8377;</h2>
 
                 </div>
-                <a href="#" class="fav-btn">
-                    <i class="fal fa-heart"></i>
-                </a>
-
             </div>
-
-            <div class="col-2">
-
-                <h4 class="job-type">PartTime</h4>
-
-                <h2 class="salary">120000 &#8377;</h2>
-
-            </div>
-        </div>
+        }
 
 
     </div>

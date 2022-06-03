@@ -167,3 +167,5 @@ C:\Users\ramva\Desktop\Job Portal ASP\JobPortal\JobPortal\obj\Debug\net5.0\Razor
 C:\Users\ramva\Desktop\Job Portal ASP\JobPortal\JobPortal\bin\Debug\net5.0\libman.json
 C:\Users\ramva\Desktop\Job Portal ASP\JobPortal\JobPortal\bin\Debug\net5.0\BCrypt.Net-Next.dll
 C:\Users\ramva\Desktop\Job Portal ASP\JobPortal\JobPortal\bin\Debug\net5.0\EntityFramework.dll
+C:\Users\ramva\Desktop\Job Portal ASP\JobPortal\JobPortal\obj\Debug\net5.0\Razor\Views\Jobseeker\SearchJobs.cshtml.g.cs
+C:\Users\ramva\Desktop\Job Portal ASP\JobPortal\JobPortal\obj\Debug\net5.0\Razor\Views\Employer\SearchJobs.cshtml.g.cs

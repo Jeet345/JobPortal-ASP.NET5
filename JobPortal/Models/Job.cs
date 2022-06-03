@@ -8,6 +8,11 @@ namespace JobPortal.Models
 {
     public partial class Job
     {
+        public Job()
+        {
+            JobApplicationsNavigation = new HashSet<JobApplication>();
+        }
+
         public int Id { get; set; }
         public int? EmployerId { get; set; }
 
@@ -24,7 +29,7 @@ namespace JobPortal.Models
 
         public int? JobApplications { get; set; }
 
-        public DateTime? JobPostingDate { get; set; }
+        public string JobPostingDate { get; set; }
 
         [MinLength(1, ErrorMessage = "Job Skills Field Is Required")]
         public string JobSkills { get; set; }
@@ -42,5 +47,7 @@ namespace JobPortal.Models
 
         public virtual User Employer { get; set; }
         public virtual Category JobCategory { get; set; }
+
+        public virtual ICollection<JobApplication> JobApplicationsNavigation { get; set; }
     }
 }

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Data.Entity.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
@@ -61,13 +60,15 @@ namespace JobPortal.Models
             {
                 entity.ToTable("Job");
 
+                entity.Property(e => e.JobApplications).HasDefaultValueSql("((0))");
+
                 entity.Property(e => e.JobEducation).IsUnicode(false);
 
                 entity.Property(e => e.JobExperience).IsUnicode(false);
 
                 entity.Property(e => e.JobLocation).IsUnicode(false);
 
-                entity.Property(e => e.JobPostingDate).HasColumnType("date");
+                entity.Property(e => e.JobPostingDate).IsUnicode(false);
 
                 entity.Property(e => e.JobSkills).IsUnicode(false);
 
@@ -92,19 +93,24 @@ namespace JobPortal.Models
             {
                 entity.ToTable("JobApplication");
 
-                entity.Property(e => e.ApplicationDate).HasColumnType("date");
+                entity.Property(e => e.ApplicationDate).IsUnicode(false);
 
                 entity.Property(e => e.Status).HasDefaultValueSql("((1))");
+
+                entity.HasOne(d => d.Category)
+                    .WithMany(p => p.JobApplications)
+                    .HasForeignKey(d => d.CategoryId)
+                    .HasConstraintName("FK_JobApplication_Category");
 
                 entity.HasOne(d => d.Employer)
                     .WithMany(p => p.JobApplicationEmployers)
                     .HasForeignKey(d => d.EmployerId)
                     .HasConstraintName("FK_JobApplications_JobApplications");
 
-                entity.HasOne(d => d.JobCategory)
-                    .WithMany(p => p.JobApplications)
-                    .HasForeignKey(d => d.JobCategoryId)
-                    .HasConstraintName("FK_JobApplication_Category");
+                entity.HasOne(d => d.Job)
+                    .WithMany(p => p.JobApplicationsNavigation)
+                    .HasForeignKey(d => d.JobId)
+                    .HasConstraintName("FK_JobApplication_Job");
 
                 entity.HasOne(d => d.JobSeeker)
                     .WithMany(p => p.JobApplicationJobSeekers)

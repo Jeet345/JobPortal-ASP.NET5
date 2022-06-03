@@ -629,8 +629,16 @@ html {
     margin: auto;
     margin-top: 60px;
     .title {
-        font-weight: 600;
-        font-size: 2.1rem;
+        display: flex;
+        justify-content: space-between;
+        h1 {
+            font-weight: 600;
+            font-size: 1.3rem;
+            .span {
+                margin-left: 5px;
+                color: $primary;
+            }
+        }
     }
     .sub-title {
         margin-top: 8px;
@@ -741,7 +749,7 @@ html {
         height: 100%;
         background-color: #0f1947ad;
         .box {
-            // width: 85%;
+            width: 85%;
             margin: auto;
             position: relative;
             top: 50%;
@@ -755,8 +763,9 @@ html {
                     width: 100%;
                     background: none;
                     border: none;
+                    font-size: 1rem;
                     background-color: #fff;
-                    padding: 22px 17px;
+                    padding: 20px 17px;
                     &:first-child {
                         border-right: 1px solid #cccccc;
                     }
@@ -1399,7 +1408,8 @@ html {
                 grid-column: auto !important;
             }
         }
-        .manage-job-box {
+        .manage-job-box,
+        .applied-job-box {
             table {
                 margin-top: 30px;
                 width: 100%;

@@ -37,7 +37,7 @@ $(document).ready(function () {
 
         var option = $(this).text();
 
-        $('.job-search-container .input-box .select-box .select').text(option);
+        $('.job-search-container .input-box .select-box .select').val(option);
 
         $('.job-search-container .input-box .option a').removeClass('selected');
         $(this).addClass('selected');

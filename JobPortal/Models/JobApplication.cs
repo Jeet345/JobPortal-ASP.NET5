@@ -10,12 +10,14 @@ namespace JobPortal.Models
         public int Id { get; set; }
         public int? JobSeekerId { get; set; }
         public int? EmployerId { get; set; }
-        public int? JobCategoryId { get; set; }
-        public DateTime? ApplicationDate { get; set; }
+        public int? JobId { get; set; }
+        public string ApplicationDate { get; set; }
+        public int? CategoryId { get; set; }
         public int? Status { get; set; }
 
+        public virtual Category Category { get; set; }
         public virtual User Employer { get; set; }
-        public virtual Category JobCategory { get; set; }
+        public virtual Job Job { get; set; }
         public virtual User JobSeeker { get; set; }
     }
 }

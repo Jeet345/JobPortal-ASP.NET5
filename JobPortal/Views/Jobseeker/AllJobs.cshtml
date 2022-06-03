@@ -10,19 +10,20 @@
     <div class="container">
 
         <div class="box" style="text-align: center">
-            <!--            <form class="inputs" method="post">
-                            <input type="text" placeholder="Job Title" name="jobName"/>
-                            <input type="text" placeholder="City or location" name="city"/>
-                            <button type="submit">Search</button>
-                        </form>-->
 
-            <h1 class="title">Jobs</h1>
+            <form class="inputs" action="/Jobseeker/SearchJobs" method="get">
+                <input type="text" placeholder="Job Title" name="title"/>
+                <input type="text" placeholder="City or location" name="location" />
+                <button type="submit">Search</button>
+            </form>
+
+            @*<h1 class="title">Jobs</h1>
 
             <h3 class="nav">
                 <a href="/JobRest">Home</a>
                 <span class="icon"><i class="fas fa-angle-right"></i></span>
                 <span>Jobs</span>
-            </h3>
+            </h3>*@
 
         </div>
 

@@ -1,8 +1,8 @@
 ﻿@model IEnumerable<JobPortal.Models.Job>
 
 @{
-    ViewData["Title"] = "All Jobs";
-    Layout = "~/Views/Shared/_EmployerLayout.cshtml";
+    ViewData["Title"] = "Search Jobs";
+    Layout = "~/Views/Shared/_JobseekerLayout.cshtml";
 }
 
 <div class="search-header">
@@ -10,19 +10,20 @@
     <div class="container">
 
         <div class="box" style="text-align: center">
-            <form class="inputs" method="get">
-                <input type="text" placeholder="Job Title" name="title" />
-                <input type="text" placeholder="City or location" name="location" />
+
+            <form class="inputs" method="get" action="/Jobseeker/SearchJobs">
+                <input type="text" placeholder="Job Title" value="@Context.Request.Query["title"]" name="title" />
+                <input type="text" placeholder="City or location" value="@Context.Request.Query["location"]" name="location" />
                 <button type="submit">Search</button>
             </form>
 
             @*<h1 class="title">Jobs</h1>
 
-            <h3 class="nav">
-                <a href="/JobRest">Home</a>
-                <span class="icon"><i class="fas fa-angle-right"></i></span>
-                <span>Jobs</span>
-            </h3>*@
+        <h3 class="nav">
+            <a href="/">Home</a>
+            <span class="icon"><i class="fas fa-angle-right"></i></span>
+            <span>Jobs</span>
+        </h3>*@
 
         </div>
 
@@ -32,7 +33,28 @@
 
 <div class="job-all-container">
 
-    <h1 class="title">@Model.Count() JOBS FOUND</h1>
+    <div class="title">
+        <h1>
+            Showing jobs for
+            @{
+                <span class="span">'@Context.Request.Query["title"]'</span>
+
+                if (Context.Request.Query["location"] != "")
+                {
+                    <span class="span">'@Context.Request.Query["location"]'</span>
+                }
+
+                if (Context.Request.Query["category"] != "")
+                {
+                    <span class="span">'@Context.Request.Query["category"]'</span>
+                }
+            }
+        </h1>
+
+        <h1>@Model.Count() Jobs Found</h1>
+
+    </div>
+
 
     <div class="job-list-container">
 
@@ -84,5 +106,6 @@
 
 
     </div>
+
 
 </div>

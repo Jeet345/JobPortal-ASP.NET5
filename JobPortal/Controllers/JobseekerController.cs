@@ -2,6 +2,7 @@
 using JobPortal.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity.Infrastructure;
@@ -23,15 +24,82 @@ namespace JobPortal.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            var jobs = _context.Jobs
+                .Include(j => j.JobCategory)
+                .OrderByDescending(j => j.Id)
+                .Take(7);
+
+            ViewData["Category"] = _context.Categories.ToList();
+
+            return View(jobs);
         }
 
         public IActionResult AllJobs()
         {
-            var jobs = _context.Jobs.ToList();
+            var jobs = _context.Jobs
+                .Where(j => j.JobStatus == 1)
+                .OrderByDescending(j => j.Id);
 
             return View(jobs);
         }
+
+        [HttpGet]
+        public IActionResult SearchJobs(string title, string location, string category)
+        {
+
+            if (!String.IsNullOrEmpty(title))
+            {
+
+                if (!String.IsNullOrEmpty(location) && !String.IsNullOrEmpty(category))
+                {
+                    var jobs = _context.Jobs
+                        .Include(j => j.JobCategory)
+                        .Where(j => j.JobLocation.Contains(location)
+                            && j.JobTitle.Contains(title)
+                            && j.JobCategory.CategoryName.Contains(category))
+                        .Where(j => j.JobStatus == 1)
+                        .OrderByDescending(j => j.Id);
+
+                    return View(jobs);
+
+                }
+                else if (!String.IsNullOrEmpty(location) && String.IsNullOrEmpty(category))
+                {
+                    var jobs = _context.Jobs
+                        .Include(j => j.JobCategory)
+                        .Where(j => j.JobLocation.Contains(location)
+                            && j.JobTitle.Contains(title))
+                        .Where(j => j.JobStatus == 1)
+                        .OrderByDescending(j => j.Id);
+
+                    return View(jobs);
+
+                }
+                else if (!String.IsNullOrEmpty(category) && String.IsNullOrEmpty(location))
+                {
+                    var jobs = _context.Jobs
+                        .Include(j => j.JobCategory)
+                        .Where(j => j.JobTitle.Contains(title)
+                            && j.JobCategory.CategoryName.Contains(category))
+                        .Where(j => j.JobStatus == 1)
+                        .OrderByDescending(j => j.Id);
+
+                    return View(jobs);
+                }
+                else
+                {
+                    var jobs = _context.Jobs
+                        .Include(j => j.JobCategory)
+                        .Where(j => j.JobTitle.Contains(title))
+                        .Where(j => j.JobStatus == 1)
+                        .OrderByDescending(j => j.Id);
+
+                    return View(jobs);
+                }
+            }
+            return NotFound();
+        }
+
 
         [UserAuthenticateFilter]
         [HttpGet]
@@ -97,7 +165,7 @@ namespace JobPortal.Controllers
                     _context.Update(user);
                     _context.SaveChanges();
                 }
-                catch(DbUpdateConcurrencyException )
+                catch(System.Data.Entity.Infrastructure.DbUpdateConcurrencyException)
                 {
                     if (!UserExists(userToUpdate.Id))
                     {
@@ -116,9 +184,26 @@ namespace JobPortal.Controllers
         [UserAuthenticateFilter]
         public IActionResult AppliedJobs()
         {
-            return View();
+
+            int userId = int.Parse(HttpContext.Session.GetString("userId"));
+
+            var jobs = (from a in _context.JobApplications
+                        join j in _context.Jobs on a.JobId equals j.Id
+                        join c in _context.Categories on j.JobCategoryId equals c.Id
+                        join e in _context.Users on a.EmployerId equals e.Id
+                        where a.JobSeekerId == userId
+                        select new JobApplication {
+                            ApplicationDate = a.ApplicationDate,
+                            Id = a.Id,
+                            Category = c,
+                            Job = j,
+                            Employer = e
+                        }).OrderByDescending(a => a.Id);
+
+            return View(jobs);
         }
 
+        
         [UserAuthenticateFilter]
         public IActionResult ChangePassword()
         {

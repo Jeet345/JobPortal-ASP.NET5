@@ -40,7 +40,7 @@ namespace JobPortal.Models
 
         [MinLength(1, ErrorMessage = "Address Field Is Required")]
         public string Address { get; set; }
-        
+
         [MinLength(1, ErrorMessage = "AboutCompany Field Is Required")]
         public string AboutCompany { get; set; }
 
@@ -77,6 +77,5 @@ namespace JobPortal.Models
         public virtual ICollection<JobSeekerProject> JobSeekerProjects { get; set; }
         public virtual ICollection<JobSeekerSkill> JobSeekerSkills { get; set; }
         public virtual ICollection<Job> Jobs { get; set; }
-
     }
 }

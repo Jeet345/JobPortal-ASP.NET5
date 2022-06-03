@@ -1,5 +1,91 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model IEnumerable<JobPortal.Models.JobApplication>
+
 @{
+    ViewData["Title"] = "Applied Jobs";
+    Layout = "~/Views/Shared/_JobseekerLayout.cshtml";
 }
+
+<div class="account-page-container">
+
+    <partial name="_JobseekerAccountSidebar" />
+
+    <div class="applied-job-container">
+
+        <div class="applied-job-box">
+
+            <h3 class="heading">BASIC INFORMATION</h3>
+
+
+            @if (Model.Count() > 0)
+            {
+
+                <table>
+                    <thead>
+                        <tr>
+                            <td></td>
+                            <td>Job Title</td>
+                            <td>Company Name</td>
+                            <td>Date</td>
+                            <td>Status</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        @foreach (var item in Model)
+                        {
+
+                            <tr>
+                                <td>
+                                    <div class="action-btn">
+                                        <a class="view-btn" href="/Jobseeker/JobDetail/@item.Job.Id"><i class="fas fa-eye"></i></a>
+                                    </div>
+                                </td>
+                                <td>
+                                    <a href="/Jobseeker/JobDetail/@item.Job.Id" class="title">@item.Job.JobTitle</a>
+                                    <div class="job-desc">
+                                        <a href="#">
+                                            <span class="icon"><i class="fas fa-map-marker-alt"></i></span>
+                                            @item.Job.JobLocation
+                                        </a>
+                                        <a href="#">
+                                            <span class="icon"><i class="fas fa-bookmark"></i></span>
+                                            @item.Job.JobType
+                                        </a>
+                                        <a href="#">
+                                            <span class="icon"><i class="fas fa-filter"></i></span>
+                                            @item.Category.CategoryName
+                                        </a>
+                                    </div>
+                                </td>
+                                <td>@item.Employer.CompanyName</td>
+                                <td>@item.ApplicationDate</td>
+
+                                @if (item.Job.JobStatus == 1)
+                                {
+                                    <td class="active">Applied</td>
+                                }
+                                else
+                                {
+                                    <td class="inactive">Rejected</td>
+                                }
+
+                            </tr>
+
+                        }
+
+
+
+
+                    </tbody>
+                </table>
+
+            }
+            else
+            {
+                <h3 style="text-align:center; margin-top: 30px">Jobs Not Available.</h3>
+            }
+        </div>
+
+    </div>
+
+</div>

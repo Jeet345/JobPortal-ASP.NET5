@@ -864,8 +864,24 @@ html {
 
 .recent-jobs-container .title,
 .job-all-container .title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.recent-jobs-container .title h1,
+.job-all-container .title h1 {
   font-weight: 600;
-  font-size: 2.1rem;
+  font-size: 1.3rem;
+}
+
+.recent-jobs-container .title h1 .span,
+.job-all-container .title h1 .span {
+  margin-left: 5px;
+  color: #2e54f8;
 }
 
 .recent-jobs-container .sub-title,
@@ -1033,6 +1049,7 @@ html {
 }
 
 .search-header .container .box {
+  width: 85%;
   margin: auto;
   position: relative;
   top: 50%;
@@ -1053,8 +1070,9 @@ html {
   width: 100%;
   background: none;
   border: none;
+  font-size: 1rem;
   background-color: #fff;
-  padding: 22px 17px;
+  padding: 20px 17px;
 }
 
 .search-header .container .box form input:first-child {
@@ -2864,68 +2882,108 @@ html {
 }
 
 .account-page-container .profile-container .manage-job-box table,
+.account-page-container .profile-container .applied-job-box table,
 .account-page-container .job-post-container .manage-job-box table,
+.account-page-container .job-post-container .applied-job-box table,
 .account-page-container .applied-job-container .manage-job-box table,
+.account-page-container .applied-job-container .applied-job-box table,
 .account-page-container .manage-job-container .manage-job-box table,
-.account-page-container .change-password-container .manage-job-box table {
+.account-page-container .manage-job-container .applied-job-box table,
+.account-page-container .change-password-container .manage-job-box table,
+.account-page-container .change-password-container .applied-job-box table {
   margin-top: 30px;
   width: 100%;
   border-collapse: collapse;
 }
 
 .account-page-container .profile-container .manage-job-box table thead td,
+.account-page-container .profile-container .applied-job-box table thead td,
 .account-page-container .job-post-container .manage-job-box table thead td,
+.account-page-container .job-post-container .applied-job-box table thead td,
 .account-page-container .applied-job-container .manage-job-box table thead td,
+.account-page-container .applied-job-container .applied-job-box table thead td,
 .account-page-container .manage-job-container .manage-job-box table thead td,
-.account-page-container .change-password-container .manage-job-box table thead td {
+.account-page-container .manage-job-container .applied-job-box table thead td,
+.account-page-container .change-password-container .manage-job-box table thead td,
+.account-page-container .change-password-container .applied-job-box table thead td {
   font-weight: 500;
 }
 
 .account-page-container .profile-container .manage-job-box table thead tr,
+.account-page-container .profile-container .applied-job-box table thead tr,
 .account-page-container .job-post-container .manage-job-box table thead tr,
+.account-page-container .job-post-container .applied-job-box table thead tr,
 .account-page-container .applied-job-container .manage-job-box table thead tr,
+.account-page-container .applied-job-container .applied-job-box table thead tr,
 .account-page-container .manage-job-container .manage-job-box table thead tr,
-.account-page-container .change-password-container .manage-job-box table thead tr {
+.account-page-container .manage-job-container .applied-job-box table thead tr,
+.account-page-container .change-password-container .manage-job-box table thead tr,
+.account-page-container .change-password-container .applied-job-box table thead tr {
   background-color: #e1e7ff;
 }
 
 .account-page-container .profile-container .manage-job-box table tr,
+.account-page-container .profile-container .applied-job-box table tr,
 .account-page-container .job-post-container .manage-job-box table tr,
+.account-page-container .job-post-container .applied-job-box table tr,
 .account-page-container .applied-job-container .manage-job-box table tr,
+.account-page-container .applied-job-container .applied-job-box table tr,
 .account-page-container .manage-job-container .manage-job-box table tr,
-.account-page-container .change-password-container .manage-job-box table tr {
+.account-page-container .manage-job-container .applied-job-box table tr,
+.account-page-container .change-password-container .manage-job-box table tr,
+.account-page-container .change-password-container .applied-job-box table tr {
   border-bottom: 1px solid #e1e7ff;
 }
 
 .account-page-container .profile-container .manage-job-box table tbody tr:nth-child(odd),
+.account-page-container .profile-container .applied-job-box table tbody tr:nth-child(odd),
 .account-page-container .job-post-container .manage-job-box table tbody tr:nth-child(odd),
+.account-page-container .job-post-container .applied-job-box table tbody tr:nth-child(odd),
 .account-page-container .applied-job-container .manage-job-box table tbody tr:nth-child(odd),
+.account-page-container .applied-job-container .applied-job-box table tbody tr:nth-child(odd),
 .account-page-container .manage-job-container .manage-job-box table tbody tr:nth-child(odd),
-.account-page-container .change-password-container .manage-job-box table tbody tr:nth-child(odd) {
+.account-page-container .manage-job-container .applied-job-box table tbody tr:nth-child(odd),
+.account-page-container .change-password-container .manage-job-box table tbody tr:nth-child(odd),
+.account-page-container .change-password-container .applied-job-box table tbody tr:nth-child(odd) {
   background-color: #fff;
 }
 
 .account-page-container .profile-container .manage-job-box table tbody tr:nth-child(even),
+.account-page-container .profile-container .applied-job-box table tbody tr:nth-child(even),
 .account-page-container .job-post-container .manage-job-box table tbody tr:nth-child(even),
+.account-page-container .job-post-container .applied-job-box table tbody tr:nth-child(even),
 .account-page-container .applied-job-container .manage-job-box table tbody tr:nth-child(even),
+.account-page-container .applied-job-container .applied-job-box table tbody tr:nth-child(even),
 .account-page-container .manage-job-container .manage-job-box table tbody tr:nth-child(even),
-.account-page-container .change-password-container .manage-job-box table tbody tr:nth-child(even) {
+.account-page-container .manage-job-container .applied-job-box table tbody tr:nth-child(even),
+.account-page-container .change-password-container .manage-job-box table tbody tr:nth-child(even),
+.account-page-container .change-password-container .applied-job-box table tbody tr:nth-child(even) {
   background-color: #f9f9f9;
 }
 
 .account-page-container .profile-container .manage-job-box table td,
+.account-page-container .profile-container .applied-job-box table td,
 .account-page-container .job-post-container .manage-job-box table td,
+.account-page-container .job-post-container .applied-job-box table td,
 .account-page-container .applied-job-container .manage-job-box table td,
+.account-page-container .applied-job-container .applied-job-box table td,
 .account-page-container .manage-job-container .manage-job-box table td,
-.account-page-container .change-password-container .manage-job-box table td {
+.account-page-container .manage-job-container .applied-job-box table td,
+.account-page-container .change-password-container .manage-job-box table td,
+.account-page-container .change-password-container .applied-job-box table td {
   padding: 18px 10px;
 }
 
 .account-page-container .profile-container .manage-job-box table td .title,
+.account-page-container .profile-container .applied-job-box table td .title,
 .account-page-container .job-post-container .manage-job-box table td .title,
+.account-page-container .job-post-container .applied-job-box table td .title,
 .account-page-container .applied-job-container .manage-job-box table td .title,
+.account-page-container .applied-job-container .applied-job-box table td .title,
 .account-page-container .manage-job-container .manage-job-box table td .title,
-.account-page-container .change-password-container .manage-job-box table td .title {
+.account-page-container .manage-job-container .applied-job-box table td .title,
+.account-page-container .change-password-container .manage-job-box table td .title,
+.account-page-container .change-password-container .applied-job-box table td .title {
   font-size: 1.1rem;
   font-weight: 500;
   color: black;
@@ -2933,18 +2991,28 @@ html {
 }
 
 .account-page-container .profile-container .manage-job-box table td .title:hover,
+.account-page-container .profile-container .applied-job-box table td .title:hover,
 .account-page-container .job-post-container .manage-job-box table td .title:hover,
+.account-page-container .job-post-container .applied-job-box table td .title:hover,
 .account-page-container .applied-job-container .manage-job-box table td .title:hover,
+.account-page-container .applied-job-container .applied-job-box table td .title:hover,
 .account-page-container .manage-job-container .manage-job-box table td .title:hover,
-.account-page-container .change-password-container .manage-job-box table td .title:hover {
+.account-page-container .manage-job-container .applied-job-box table td .title:hover,
+.account-page-container .change-password-container .manage-job-box table td .title:hover,
+.account-page-container .change-password-container .applied-job-box table td .title:hover {
   text-decoration: underline;
 }
 
 .account-page-container .profile-container .manage-job-box table td .job-desc,
+.account-page-container .profile-container .applied-job-box table td .job-desc,
 .account-page-container .job-post-container .manage-job-box table td .job-desc,
+.account-page-container .job-post-container .applied-job-box table td .job-desc,
 .account-page-container .applied-job-container .manage-job-box table td .job-desc,
+.account-page-container .applied-job-container .applied-job-box table td .job-desc,
 .account-page-container .manage-job-container .manage-job-box table td .job-desc,
-.account-page-container .change-password-container .manage-job-box table td .job-desc {
+.account-page-container .manage-job-container .applied-job-box table td .job-desc,
+.account-page-container .change-password-container .manage-job-box table td .job-desc,
+.account-page-container .change-password-container .applied-job-box table td .job-desc {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2955,37 +3023,57 @@ html {
 }
 
 .account-page-container .profile-container .manage-job-box table td .job-desc a,
+.account-page-container .profile-container .applied-job-box table td .job-desc a,
 .account-page-container .job-post-container .manage-job-box table td .job-desc a,
+.account-page-container .job-post-container .applied-job-box table td .job-desc a,
 .account-page-container .applied-job-container .manage-job-box table td .job-desc a,
+.account-page-container .applied-job-container .applied-job-box table td .job-desc a,
 .account-page-container .manage-job-container .manage-job-box table td .job-desc a,
-.account-page-container .change-password-container .manage-job-box table td .job-desc a {
+.account-page-container .manage-job-container .applied-job-box table td .job-desc a,
+.account-page-container .change-password-container .manage-job-box table td .job-desc a,
+.account-page-container .change-password-container .applied-job-box table td .job-desc a {
   color: #1e42df;
   display: block;
   font-size: 0.9rem;
 }
 
 .account-page-container .profile-container .manage-job-box table td .job-desc a .icon,
+.account-page-container .profile-container .applied-job-box table td .job-desc a .icon,
 .account-page-container .job-post-container .manage-job-box table td .job-desc a .icon,
+.account-page-container .job-post-container .applied-job-box table td .job-desc a .icon,
 .account-page-container .applied-job-container .manage-job-box table td .job-desc a .icon,
+.account-page-container .applied-job-container .applied-job-box table td .job-desc a .icon,
 .account-page-container .manage-job-container .manage-job-box table td .job-desc a .icon,
-.account-page-container .change-password-container .manage-job-box table td .job-desc a .icon {
+.account-page-container .manage-job-container .applied-job-box table td .job-desc a .icon,
+.account-page-container .change-password-container .manage-job-box table td .job-desc a .icon,
+.account-page-container .change-password-container .applied-job-box table td .job-desc a .icon {
   margin-right: 2px;
   font-size: 0.8rem;
 }
 
 .account-page-container .profile-container .manage-job-box table td .job-desc a:hover,
+.account-page-container .profile-container .applied-job-box table td .job-desc a:hover,
 .account-page-container .job-post-container .manage-job-box table td .job-desc a:hover,
+.account-page-container .job-post-container .applied-job-box table td .job-desc a:hover,
 .account-page-container .applied-job-container .manage-job-box table td .job-desc a:hover,
+.account-page-container .applied-job-container .applied-job-box table td .job-desc a:hover,
 .account-page-container .manage-job-container .manage-job-box table td .job-desc a:hover,
-.account-page-container .change-password-container .manage-job-box table td .job-desc a:hover {
+.account-page-container .manage-job-container .applied-job-box table td .job-desc a:hover,
+.account-page-container .change-password-container .manage-job-box table td .job-desc a:hover,
+.account-page-container .change-password-container .applied-job-box table td .job-desc a:hover {
   text-decoration: underline;
 }
 
 .account-page-container .profile-container .manage-job-box table td .action-btn,
+.account-page-container .profile-container .applied-job-box table td .action-btn,
 .account-page-container .job-post-container .manage-job-box table td .action-btn,
+.account-page-container .job-post-container .applied-job-box table td .action-btn,
 .account-page-container .applied-job-container .manage-job-box table td .action-btn,
+.account-page-container .applied-job-container .applied-job-box table td .action-btn,
 .account-page-container .manage-job-container .manage-job-box table td .action-btn,
-.account-page-container .change-password-container .manage-job-box table td .action-btn {
+.account-page-container .manage-job-container .applied-job-box table td .action-btn,
+.account-page-container .change-password-container .manage-job-box table td .action-btn,
+.account-page-container .change-password-container .applied-job-box table td .action-btn {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2999,10 +3087,15 @@ html {
 }
 
 .account-page-container .profile-container .manage-job-box table td .action-btn a,
+.account-page-container .profile-container .applied-job-box table td .action-btn a,
 .account-page-container .job-post-container .manage-job-box table td .action-btn a,
+.account-page-container .job-post-container .applied-job-box table td .action-btn a,
 .account-page-container .applied-job-container .manage-job-box table td .action-btn a,
+.account-page-container .applied-job-container .applied-job-box table td .action-btn a,
 .account-page-container .manage-job-container .manage-job-box table td .action-btn a,
-.account-page-container .change-password-container .manage-job-box table td .action-btn a {
+.account-page-container .manage-job-container .applied-job-box table td .action-btn a,
+.account-page-container .change-password-container .manage-job-box table td .action-btn a,
+.account-page-container .change-password-container .applied-job-box table td .action-btn a {
   width: 30px;
   height: 30px;
   display: -webkit-box;
@@ -3021,55 +3114,85 @@ html {
 }
 
 .account-page-container .profile-container .manage-job-box table td .action-btn .view-btn,
+.account-page-container .profile-container .applied-job-box table td .action-btn .view-btn,
 .account-page-container .job-post-container .manage-job-box table td .action-btn .view-btn,
+.account-page-container .job-post-container .applied-job-box table td .action-btn .view-btn,
 .account-page-container .applied-job-container .manage-job-box table td .action-btn .view-btn,
+.account-page-container .applied-job-container .applied-job-box table td .action-btn .view-btn,
 .account-page-container .manage-job-container .manage-job-box table td .action-btn .view-btn,
-.account-page-container .change-password-container .manage-job-box table td .action-btn .view-btn {
+.account-page-container .manage-job-container .applied-job-box table td .action-btn .view-btn,
+.account-page-container .change-password-container .manage-job-box table td .action-btn .view-btn,
+.account-page-container .change-password-container .applied-job-box table td .action-btn .view-btn {
   background-color: #2e54f8;
   -webkit-transition: 0.2s;
   transition: 0.2s;
 }
 
 .account-page-container .profile-container .manage-job-box table td .action-btn .view-btn:hover,
+.account-page-container .profile-container .applied-job-box table td .action-btn .view-btn:hover,
 .account-page-container .job-post-container .manage-job-box table td .action-btn .view-btn:hover,
+.account-page-container .job-post-container .applied-job-box table td .action-btn .view-btn:hover,
 .account-page-container .applied-job-container .manage-job-box table td .action-btn .view-btn:hover,
+.account-page-container .applied-job-container .applied-job-box table td .action-btn .view-btn:hover,
 .account-page-container .manage-job-container .manage-job-box table td .action-btn .view-btn:hover,
-.account-page-container .change-password-container .manage-job-box table td .action-btn .view-btn:hover {
+.account-page-container .manage-job-container .applied-job-box table td .action-btn .view-btn:hover,
+.account-page-container .change-password-container .manage-job-box table td .action-btn .view-btn:hover,
+.account-page-container .change-password-container .applied-job-box table td .action-btn .view-btn:hover {
   background-color: #1e42df;
 }
 
 .account-page-container .profile-container .manage-job-box table td .action-btn .delete-btn,
+.account-page-container .profile-container .applied-job-box table td .action-btn .delete-btn,
 .account-page-container .job-post-container .manage-job-box table td .action-btn .delete-btn,
+.account-page-container .job-post-container .applied-job-box table td .action-btn .delete-btn,
 .account-page-container .applied-job-container .manage-job-box table td .action-btn .delete-btn,
+.account-page-container .applied-job-container .applied-job-box table td .action-btn .delete-btn,
 .account-page-container .manage-job-container .manage-job-box table td .action-btn .delete-btn,
-.account-page-container .change-password-container .manage-job-box table td .action-btn .delete-btn {
+.account-page-container .manage-job-container .applied-job-box table td .action-btn .delete-btn,
+.account-page-container .change-password-container .manage-job-box table td .action-btn .delete-btn,
+.account-page-container .change-password-container .applied-job-box table td .action-btn .delete-btn {
   background-color: #e53232;
   -webkit-transition: 0.2s;
   transition: 0.2s;
 }
 
 .account-page-container .profile-container .manage-job-box table td .action-btn .delete-btn:hover,
+.account-page-container .profile-container .applied-job-box table td .action-btn .delete-btn:hover,
 .account-page-container .job-post-container .manage-job-box table td .action-btn .delete-btn:hover,
+.account-page-container .job-post-container .applied-job-box table td .action-btn .delete-btn:hover,
 .account-page-container .applied-job-container .manage-job-box table td .action-btn .delete-btn:hover,
+.account-page-container .applied-job-container .applied-job-box table td .action-btn .delete-btn:hover,
 .account-page-container .manage-job-container .manage-job-box table td .action-btn .delete-btn:hover,
-.account-page-container .change-password-container .manage-job-box table td .action-btn .delete-btn:hover {
+.account-page-container .manage-job-container .applied-job-box table td .action-btn .delete-btn:hover,
+.account-page-container .change-password-container .manage-job-box table td .action-btn .delete-btn:hover,
+.account-page-container .change-password-container .applied-job-box table td .action-btn .delete-btn:hover {
   background-color: #d12f2f;
 }
 
 .account-page-container .profile-container .manage-job-box table .active,
+.account-page-container .profile-container .applied-job-box table .active,
 .account-page-container .job-post-container .manage-job-box table .active,
+.account-page-container .job-post-container .applied-job-box table .active,
 .account-page-container .applied-job-container .manage-job-box table .active,
+.account-page-container .applied-job-container .applied-job-box table .active,
 .account-page-container .manage-job-container .manage-job-box table .active,
-.account-page-container .change-password-container .manage-job-box table .active {
+.account-page-container .manage-job-container .applied-job-box table .active,
+.account-page-container .change-password-container .manage-job-box table .active,
+.account-page-container .change-password-container .applied-job-box table .active {
   color: #2cad79;
   font-weight: 500;
 }
 
 .account-page-container .profile-container .manage-job-box table .inactive,
+.account-page-container .profile-container .applied-job-box table .inactive,
 .account-page-container .job-post-container .manage-job-box table .inactive,
+.account-page-container .job-post-container .applied-job-box table .inactive,
 .account-page-container .applied-job-container .manage-job-box table .inactive,
+.account-page-container .applied-job-container .applied-job-box table .inactive,
 .account-page-container .manage-job-container .manage-job-box table .inactive,
-.account-page-container .change-password-container .manage-job-box table .inactive {
+.account-page-container .manage-job-container .applied-job-box table .inactive,
+.account-page-container .change-password-container .manage-job-box table .inactive,
+.account-page-container .change-password-container .applied-job-box table .inactive {
   color: #ff4679;
   font-weight: 500;
 }
