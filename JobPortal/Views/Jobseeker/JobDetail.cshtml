@@ -112,10 +112,16 @@
             </p>
         </div>
 
-        <form>
+        <form asp-action="JobApplyRequest" method="post" data-ajax-loading="#myLoader" data-ajax="true" data-ajax-complete="myComplete" data-ajax-success="mySuccess" data-ajax-failure="myFailure">
+
+            <input type="hidden" name="JobId" value="@Model.Id" />
+
             @if (!String.IsNullOrEmpty(Context.Session.GetString("userId")))
             {
-                <button type="submit" class="job-btn">Apply This Job</button>
+                <button type="submit" class="job-btn">
+                    Apply This Job
+                    <i class="fas fa-spinner fa-spin" id="myLoader"></i>
+                </button>
             }
             else
             {
@@ -126,3 +132,36 @@
     </div>
 
 </div>
+
+
+
+@section Scripts
+{
+
+    <script>
+
+        function mySuccess(data) {
+
+            if (data == 1) {
+                toastr.success('You have successfully applied for this Job ..');
+            }
+            else if (data == 2) {
+                toastr.error("You have alredy applied for this job !!");
+            }
+            else {
+                toastr.error("Something wan't wrong !!");
+            }
+
+        }
+
+        function myFailure(data) {
+            alert("Error : " + data.status);
+        }
+
+        function myComplete(data) {
+            console.log(data);
+        }
+
+    </script>
+
+}

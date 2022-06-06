@@ -226,6 +226,48 @@ namespace JobPortal.Controllers
             return View(job);
         }
 
+        [HttpPost]
+        public int JobApplyRequest(string jobId)
+        {
+            if (!String.IsNullOrEmpty(jobId))
+            {
+                int id = int.Parse(jobId);
+                int userId = int.Parse(HttpContext.Session.GetString("userId"));
+                string date = DateTime.Now.ToString("dd/MM/yyyy");
+
+                var isAlredyApplied = from a in _context.JobApplications
+                                      where a.JobSeekerId == userId
+                                      && a.JobId == id
+                                      select a;
+
+                if (isAlredyApplied.Count() > 0)
+                {
+                    return 2;
+                }
+                else
+                {
+                    var job = _context.Jobs.Find(id);
+                    job.JobApplications = job.JobApplications + 1;
+
+                    JobApplication jobApplication = new JobApplication
+                    {
+                        ApplicationDate = date,
+                        CategoryId = job.JobCategoryId,
+                        EmployerId = job.EmployerId,
+                        JobId = job.Id,
+                        JobSeekerId = userId
+                    };
+
+                    _context.Update(job);
+                    _context.Add(jobApplication);
+                    _context.SaveChanges();
+
+                    return 1;
+                }
+            }
+            return 0;
+        }
+
         private bool UserExists(int id)
         {
             return _context.Users.Any(e => e.Id == id);
