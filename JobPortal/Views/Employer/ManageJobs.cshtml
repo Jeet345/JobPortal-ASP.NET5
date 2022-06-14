@@ -56,8 +56,12 @@
                                         </a>
                                     </div>
                                 </td>
-                                <td>(@item.JobApplications) Applications</td>
-                                <td>12 Aug 2021</td>
+                                <td>
+                                    <a href="" class="job-applications" data-jobid="@item.Id">
+                                        (@item.JobApplications) Applications
+                                    </a>
+                                </td>
+                                <td>@item.JobPostingDate</td>
 
                                 @if (item.JobStatus == 1)
                                 {
@@ -130,6 +134,114 @@
             }
 
         });
+
+
+    function loadJobApplications(jobId) {
+
+        console.log(jobId);
+
+        $.ajax({
+            type: "POST",
+            url: "/Employer/JobApplications",
+            data: {
+                jobId: jobId
+            },
+            success: function (res) {
+                $(".account-page-container .manage-job-container").html(res);
+            },
+            error: function (res) {
+                alert(res.responseText);
+            }
+        });
+
+    }
+
+    $(".account-page-container .manage-job-container .job-applications").click(function (e) {
+
+        e.preventDefault();
+
+        var jobId = $(this).data("jobid");
+
+        loadJobApplications(jobId);
+
+    });
+
+
+
+
+    // ---------------- job application page script
+
+    $(document).on("click", ".manage-job-box .heading .back-btn", function () {
+
+        location.reload();
+        
+    });
+
+    $(document).on("click", ".account-page-container .manage-job-container .action-btn .hire-btn",function (e) {
+
+        e.preventDefault();
+
+        if (confirm("Are You Sure U Wan't Hire This User") == true) {
+
+            let appId = $(this).data("appid");
+            let jobId = $(".account-page-container .manage-job-container .heading").data("jobid");
+
+            $.ajax({
+                type: "post",
+                url: "/Employer/HireUserRequest",
+                data: {
+                    appId: appId
+                },
+                success: function (res) {
+                    if (res) {
+                        loadJobApplications(jobId);
+                        toastr.success("Status Changed Successfully.");
+                    }
+                    else {
+                        toastr.error("Something Wan't Wrong");
+                    }
+                },
+                error: function (res) {
+                    alert(res.responseText);
+                }
+            });
+        }
+
+    });
+
+
+    $(document).on("click", ".account-page-container .manage-job-container .action-btn .reject-btn", function (e) {
+
+        e.preventDefault();
+
+        if (confirm("Are You Sure U Wan't Reject This Application") == true) {
+
+            let appId = $(this).data("appid");
+            let jobId = $(".account-page-container .manage-job-container .heading").data("jobid");
+
+            $.ajax({
+                type: "post",
+                url: "/Employer/RejectUserRequest",
+                data: {
+                    appId: appId
+                },
+                success: function (res) {
+                    if (res) {
+                        loadJobApplications(jobId);
+                        toastr.success("Status Changed Successfully.");
+                    }
+                    else {
+                        toastr.error("Something Wan't Wrong");
+                    }
+                },
+                error: function (res) {
+                    alert(res.responseText);
+                }
+            });
+        }
+
+    });
+
 
 </script>
 

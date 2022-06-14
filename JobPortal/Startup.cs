@@ -12,6 +12,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using JobPortal.Filters;
+using Microsoft.AspNetCore.Mvc;
 
 namespace JobPortal
 {
@@ -30,10 +31,12 @@ namespace JobPortal
             services.AddControllersWithViews(options =>
             {
                 options.Filters.Add(new GlobalFilter(1));  // global filter
+
             });
 
             //services.AddControllersWithViews();
 
+            
             services.AddDbContext<JobPortalDBContext>(o => o.UseSqlServer(Configuration.GetConnectionString("DBConnectionStrings")));
             services.AddSession(options =>
             {
@@ -78,7 +81,7 @@ namespace JobPortal
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Jobseeker}/{action=Index}/{id?}");
+                    pattern: "{controller=Admin}/{action=Index}/{id?}");
 
             });
 

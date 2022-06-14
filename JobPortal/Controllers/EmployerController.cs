@@ -2,12 +2,12 @@
 using JobPortal.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.CodeAnalysis;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Caching.Memory;
 using System;
 using System.Collections.Generic;
-using System.Data.Entity.Infrastructure;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace JobPortal.Controllers
 {
@@ -100,7 +100,7 @@ namespace JobPortal.Controllers
             return NotFound();
         }
 
-
+        [UserAuthenticateFilter]
         public IActionResult Account()
         {
             int userId = int.Parse(HttpContext.Session.GetString("userId"));
@@ -109,7 +109,7 @@ namespace JobPortal.Controllers
             if(user == null)
             {
                 return NotFound();
-            }
+            }          
 
             return View(user);
         }
@@ -173,6 +173,92 @@ namespace JobPortal.Controllers
 
             return View(jobs);
         }
+
+        [HttpPost]
+        public IActionResult JobApplications(string jobId)
+        {
+            int id = int.Parse(jobId);
+
+            var jobApplications = _context.JobApplications
+                .Include(u => u.JobSeeker)
+                .Include(e => e.Employer)
+                .Include(j => j.Job)
+                .Where(j => j.JobId == id)
+                .OrderByDescending(a => a.Id);
+
+            return View(jobApplications);
+        }
+
+        [HttpPost]
+        public bool HireUserRequest(string appId)
+        {
+            if(!String.IsNullOrEmpty(appId))
+            {
+                int id = int.Parse(appId);
+
+                var jobApplication = _context.JobApplications
+                    .Include(u => u.JobSeeker)
+                    .FirstOrDefault(a => a.Id == id);
+
+                if(jobApplication == null)
+                {
+                    return false;
+                }
+
+                jobApplication.Status = 2; // 2 means user is hired
+
+                _context.Update(jobApplication);
+                _context.SaveChanges();
+
+                var hireMail = new SendMail
+                {
+                    toMail = jobApplication.JobSeeker.Email.ToString(),
+                    mailBody = "<h2>Your Application Selected For Hiring.</h2>",
+                    mailTitle = "Clear Career Job Portal",
+                    subject = "Applied Job"
+                };
+                hireMail.Send();
+
+                return true;
+            }
+            return false;
+        }
+
+        [HttpPost]
+        public bool RejectUserRequest(string appId)
+        {
+            if (!String.IsNullOrEmpty(appId))
+            {
+                int id = int.Parse(appId);
+
+                var jobApplication = _context.JobApplications
+                                    .Include(u => u.JobSeeker)
+                                    .FirstOrDefault(a => a.Id == id);
+
+                if (jobApplication == null)
+                {
+                    return false;
+                }
+
+                jobApplication.Status = 0; // 0 means user is reject
+
+                _context.Update(jobApplication);
+                _context.SaveChanges();
+
+                var rejectMail = new SendMail
+                {
+                    toMail = jobApplication.JobSeeker.Email.ToString(),
+                    mailBody = "<h2 style='color:red'>Sorry, Your Application Is Rejected.</h2>",
+                    mailTitle = "Clear Career Job Portal",
+                    subject = "Applied Job"
+                };
+                rejectMail.Send();
+
+                return true;
+            }
+            return false;
+        }
+
 
         [HttpDelete]
         public bool DeleteJobRequest(int? id)

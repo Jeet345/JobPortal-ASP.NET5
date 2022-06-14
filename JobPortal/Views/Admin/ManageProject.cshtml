@@ -1,0 +1,68 @@
+﻿@using Microsoft.AspNetCore.Http
+@model IEnumerable<JobPortal.Models.JobSeekerProject>
+
+@{
+    ViewData["Title"] = "Manage Project";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="content">
+
+
+    <div class="add-btn">
+        <Button class="btn">Add Record</Button>
+    </div>
+
+    <div class="display-table">
+
+        <table class="table">
+
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Id</th>
+                    <th>User Name</th>
+                    <th>Project Title</th>
+                    <th>Project Client</th>
+                    <th>Project Status</th>
+                    <th>Starting Date</th>
+                    <th>Ending Date</th>
+                    <th>Project Details</th>
+                    <th>Project Skills</th>
+
+                </tr>
+            </thead>
+
+            <tbody>
+
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            <div class="action-btn">
+                                <button class="btn edit-btn">Edit</button>
+                                <button class="btn delete-btn">Delete</button>
+                            </div>
+                        </td>
+                        <td>@item.Id</td>
+                        <td>@item.JobSeeker.Name</td>
+                        <td>@item.ProjectTitle </td>
+                        <td>@item.ProjectClient</td>
+                        <td>@item.ProjectStatus</td>
+                        <td>@item.StartMonth</td>
+                        <td>@item.EndMonth</td>
+                        <td>@item.ProjectDetails</td>
+                        <td>@item.ProjectSkilles</td>
+
+                    </tr>
+                }
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+

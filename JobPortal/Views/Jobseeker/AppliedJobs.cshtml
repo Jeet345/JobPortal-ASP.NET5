@@ -34,42 +34,46 @@
                         @foreach (var item in Model)
                         {
 
-                            <tr>
-                                <td>
-                                    <div class="action-btn">
-                                        <a class="view-btn" href="/Jobseeker/JobDetail/@item.Job.Id"><i class="fas fa-eye"></i></a>
-                                    </div>
-                                </td>
-                                <td>
-                                    <a href="/Jobseeker/JobDetail/@item.Job.Id" class="title">@item.Job.JobTitle</a>
-                                    <div class="job-desc">
-                                        <a href="#">
-                                            <span class="icon"><i class="fas fa-map-marker-alt"></i></span>
-                                            @item.Job.JobLocation
-                                        </a>
-                                        <a href="#">
-                                            <span class="icon"><i class="fas fa-bookmark"></i></span>
-                                            @item.Job.JobType
-                                        </a>
-                                        <a href="#">
-                                            <span class="icon"><i class="fas fa-filter"></i></span>
-                                            @item.Category.CategoryName
-                                        </a>
-                                    </div>
-                                </td>
-                                <td>@item.Employer.CompanyName</td>
-                                <td>@item.ApplicationDate</td>
+                        <tr>
+                            <td>
+                                <div class="action-btn">
+                                    <a class="view-btn" href="/Jobseeker/JobDetail/@item.Job.Id"><i class="fas fa-eye"></i></a>
+                                </div>
+                            </td>
+                            <td>
+                                <a href="/Jobseeker/JobDetail/@item.Job.Id" class="title">@item.Job.JobTitle</a>
+                                <div class="job-desc">
+                                    <a href="#">
+                                        <span class="icon"><i class="fas fa-map-marker-alt"></i></span>
+                                        @item.Job.JobLocation
+                                    </a>
+                                    <a href="#">
+                                        <span class="icon"><i class="fas fa-bookmark"></i></span>
+                                        @item.Job.JobType
+                                    </a>
+                                    <a href="#">
+                                        <span class="icon"><i class="fas fa-filter"></i></span>
+                                        @item.Category.CategoryName
+                                    </a>
+                                </div>
+                            </td>
+                            <td>@item.Employer.CompanyName</td>
+                            <td>@item.ApplicationDate</td>
 
-                                @if (item.Job.JobStatus == 1)
-                                {
-                                    <td class="active">Applied</td>
-                                }
-                                else
-                                {
-                                    <td class="inactive">Rejected</td>
-                                }
+                            @if (item.Status == 1)
+                            {
+                                <td class="active">Applied</td>
+                            }
+                            else if (item.Status == 2)
+                            {
+                                <td class="active">Hiring</td>
+                            }
+                            else
+                            {
+                                <td class="inactive">Rejected</td>
+                            }
 
-                            </tr>
+                        </tr>
 
                         }
 

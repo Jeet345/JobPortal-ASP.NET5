@@ -1,0 +1,68 @@
+﻿@using Microsoft.AspNetCore.Http
+@model IEnumerable<JobPortal.Models.JobSeekerEducation>
+
+@{
+    ViewData["Title"] = "Manage Education";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="content">
+
+
+    <div class="add-btn">
+        <Button class="btn">Add Record</Button>
+    </div>
+
+    <div class="display-table">
+
+        <table class="table">
+
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Id</th>
+                    <th>User Name</th>
+                    <th>Education</th>
+                    <th>Board</th>
+                    <th>Course</th>
+                    <th>Passing Year</th>
+                    <th>University</th>
+                    <th>Course Type</th>
+                    <th>Marks</th>
+
+                </tr>
+            </thead>
+
+            <tbody>
+
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            <div class="action-btn">
+                                <button class="btn edit-btn">Edit</button>
+                                <button class="btn delete-btn">Delete</button>
+                            </div>
+                        </td>
+                        <td>@item.Id</td>
+                        <td>@item.JobSeeker.Name</td>
+                        <td>@item.Education</td>
+                        <td>@item.Board</td>
+                        <td>@item.Course</td>
+                        <td>@item.PassingYear</td>
+                        <td>@item.University</td>
+                        <td>@item.CourseType</td>
+                        <td>@item.Marks</td>
+
+                    </tr>
+                }
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+

@@ -1,0 +1,85 @@
+﻿@using Microsoft.AspNetCore.Http
+@model IEnumerable<JobPortal.Models.Job>
+
+@{
+    ViewData["Title"] = "Manage Jobs";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="content">
+
+
+    <div class="add-btn">
+        <Button class="btn">Add Record</Button>
+    </div>
+
+    <div class="display-table">
+
+        <table class="table">
+
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Id</th>
+                    <th>Company Name</th>
+                    <th>Category Name</th>
+                    <th>Title</th>
+                    <th>Location</th>
+                    <th>Experience</th>
+                    <th>Applications</th>
+                    <th>Posting Date</th>
+                    <th>Skills</th>
+                    <th>Salary</th>
+                    <th>Job Type</th>
+                    <th>Education</th>
+                    <th>Status</th>
+
+                </tr>
+            </thead>
+
+            <tbody>
+
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            <div class="action-btn">
+                                <button class="btn edit-btn">Edit</button>
+                                <button class="btn delete-btn">Delete</button>
+                            </div>
+                        </td>
+                        <td>@item.Id</td>
+                        <td>@item.Employer.CompanyName</td>
+                        <td>@item.JobCategory.CategoryName</td>
+                        <td>@item.JobTitle</td>
+                        <td>@item.JobLocation</td>
+                        <td>@item.JobExperience</td>
+                        <td>@item.JobApplications</td>
+                        <td>@item.JobPostingDate</td>
+                        <td>@item.JobSkills</td>
+                        <td>@item.JobSalary</td>
+                        <td>@item.JobType</td>
+                        <td>@item.JobEducation</td>
+                        <td>
+                            @if (item.JobStatus == 1)
+                            {
+                                <span style="color: #2cad79">Active</span>
+                            }
+                            else if (item.JobStatus == 0)
+                            {
+                                <span style="color: #ff4679">Removed</span>
+                            }
+                        </td>
+
+                    </tr>
+                }
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+

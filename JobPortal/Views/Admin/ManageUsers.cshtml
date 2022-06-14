@@ -1,0 +1,99 @@
+﻿@using Microsoft.AspNetCore.Http
+@model IEnumerable<JobPortal.Models.User>
+
+@{
+    ViewData["Title"] = "Manage Users";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="content">
+
+
+    <div class="add-btn">
+        <Button class="btn">Add Record</Button>
+    </div>
+
+    <div class="display-table">
+
+        <table class="table">
+
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Id</th>
+                    <th>Group Name</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Company Name</th>
+                    <th>Website</th>
+                    <th>Address</th>
+                    <th>About Company</th>
+                    <th>City</th>
+                    <th>State</th>
+                    <th>Country</th>
+                    <th>DOB</th>
+                    <th>Gender</th>
+                    <th>Languages</th>
+                    <th>Resume</th>
+                    <th>Work Status</th>
+                    <th>Status</th>
+                    
+                </tr>
+            </thead>
+
+            <tbody>
+
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            <div class="action-btn">
+                                <button class="btn edit-btn">Edit</button>
+                                <button class="btn delete-btn">Delete</button>
+                            </div>
+                        </td>
+                        <td>@item.Id</td>
+                        <td>@item.Group.GroupName</td>
+                        <td>@item.Name</td>
+                        <td>@item.Email</td>
+                        <td>@item.CompanyName</td>
+                        <td>@item.Website</td>
+                        <td>@item.Address</td>
+                        <td>@item.AboutCompany</td>
+                        <td>@item.City</td>
+                        <td>@item.State</td>
+                        <td>@item.Country</td>
+                        <td>
+                            @if (!String.IsNullOrEmpty(item.Dob.ToString()))
+                            {
+                                @item.Dob.Value.ToLongDateString()
+                            }
+
+                        </td>
+                        <td>@item.Gender</td>
+                        <td>@item.Languages</td>
+                        <td>@item.Resume</td>
+                        <td>@item.WorkStatus</td>
+                        <td>
+                            @if (item.Status == 1)
+                            {
+                                <span style="color: #2cad79">Active</span>
+                            }
+                            else if (item.Status == 0)
+                            {
+                                <span style="color: #ff4679">Removed</span>
+                            }
+                        </td>
+
+                    </tr>
+                }
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+

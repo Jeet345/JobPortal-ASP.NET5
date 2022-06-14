@@ -115,6 +115,33 @@ namespace JobPortal.Controllers
             return View();
         }
 
+        [HttpPost]
+        public int ChangePasswordRequest(MyChangePassword newChangePassword)
+        {
+            if (ModelState.IsValid)
+            {
+                var userEmail = HttpContext.Session.GetString("userEmail");
+                var user = (from u in _context.Users
+                            where u.Email == userEmail
+                            select u)
+                            .FirstOrDefault();
+
+                if (user != null)
+                {
+                    bool passwordCheck = BCrypt.Net.BCrypt.Verify(newChangePassword.OldPassword, user.Password.ToString());
+
+                    if (passwordCheck)
+                    {
+                        user.Password = BCrypt.Net.BCrypt.HashPassword(newChangePassword.Password);
+                        _context.Update(user);
+                        _context.SaveChanges();
+                        return 1;
+                    }
+                }
+            }
+            return 0;
+        }
+
         public Boolean isEmailExist(string email)
         {
             if (email != "")

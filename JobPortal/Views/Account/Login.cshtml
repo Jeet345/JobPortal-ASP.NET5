@@ -15,12 +15,12 @@
         <p class="sub-title">Enter your e-mail address and your password.</p>
 
         <div class="input-filed">
-            <input asp-for="email" type="email" value="emp@gmail.com" id="email" placeholder="Enter Email" required />
+            <input asp-for="email" type="email" value="mendaparajeet@gmail.com" id="email" placeholder="Enter Email" required />
             <span asp-validation-for="email" class="error-msg"></span>
         </div>
 
         <div class="input-filed">
-            <input asp-for="password" type="password" id="password" value="emp" placeholder="Enter Password" required />
+            <input asp-for="password" type="password" id="password" value="jeet" placeholder="Enter Password" required />
             <span asp-validation-for="password" class="error-msg"></span>
         </div>
 
@@ -69,6 +69,8 @@
         function myFailure(data) {
             alert("Error : " + data.status);
         }
+
+        
 
     </script>
 

@@ -1272,6 +1272,22 @@ html {
                 padding-bottom: 15px;
                 text-transform: uppercase;
                 border-bottom: 1px solid #e1e7ff;
+                .back-btn {
+                    font-size: 0.9rem;
+                    display: block;
+                    background-color: $primary;
+                    padding: 6px 9px;
+                    color: #fff;
+                    text-transform: lowercase;
+                    border-radius: 3px;
+                    margin-right: 15px;
+                    font-weight: 500;
+                    cursor: pointer;
+                    transition: 0.2s;
+                    &:hover {
+                        background-color: $darkPrimary;
+                    }
+                }
                 .edit-btn {
                     display: block;
                     padding: 7px 11px;
@@ -1410,7 +1426,10 @@ html {
         }
         .manage-job-box,
         .applied-job-box {
+            width: 100%;
+            overflow: auto;
             table {
+                white-space: nowrap;
                 margin-top: 30px;
                 width: 100%;
                 border-collapse: collapse;
@@ -1449,6 +1468,13 @@ html {
                             text-decoration: underline;
                         }
                     }
+                    .job-applications {
+                        transition: 0.2s;
+                        &:hover {
+                            color: $darkPrimary;
+                            text-decoration: underline;
+                        }
+                    }
                     .job-desc {
                         display: flex;
                         flex-wrap: nowrap;
@@ -1483,14 +1509,16 @@ html {
                             color: rgb(248, 248, 248);
                             font-size: 0.9rem;
                         }
-                        .view-btn {
+                        .view-btn,
+                        .hire-btn {
                             background-color: $primary;
                             transition: 0.2s;
                             &:hover {
                                 background-color: $darkPrimary;
                             }
                         }
-                        .delete-btn {
+                        .delete-btn,
+                        .reject-btn {
                             background-color: #e53232;
                             transition: 0.2s;
                             &:hover {
@@ -1508,6 +1536,12 @@ html {
                     color: #ff4679;
                     font-weight: 500;
                 }
+            }
+        }
+
+        .manage-job-box {
+            .heading {
+                justify-content: start;
             }
         }
     }
@@ -1721,28 +1755,45 @@ html {
     .content {
         flex: 1;
         height: 100vh;
-        overflow: auto;
+        overflow: hidden;
         padding: 30px;
-        .display-table {
-            .add-btn {
-                display: flex;
-                justify-content: flex-end;
-                margin-bottom: 10px;
-                .btn {
-                    background: none;
-                    border: none;
-                    padding: 10px 15px;
-                    background-color: rgb(3, 168, 3);
-                    color: white;
-                    cursor: pointer;
-                    border-radius: 4px;
-                    font-weight: 500;
-                    transition: 0.2s;
-                    font-size: 1rem;
-                    &:hover {
-                        background-color: rgb(1, 145, 1);
-                    }
+        .add-btn {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 10px;
+            .btn {
+                background: none;
+                border: none;
+                padding: 10px 15px;
+                background-color: rgb(3, 168, 3);
+                color: white;
+                cursor: pointer;
+                border-radius: 4px;
+                font-weight: 500;
+                transition: 0.2s;
+                font-size: 1rem;
+                &:hover {
+                    background-color: rgb(1, 145, 1);
                 }
+            }
+        }
+        .display-table {
+            margin-top: 25px;
+            height: 90%;
+            overflow: auto;
+            border-radius: 5px;
+            &::-webkit-scrollbar {
+                height: 6px;
+                width: 6px;
+            }
+            &::-webkit-scrollbar-track {
+                border-radius: 15px;
+                background: #e1e7ffa6;
+            }
+
+            &::-webkit-scrollbar-thumb {
+                border-radius: 15px;
+                background: rgb(216, 216, 216);
             }
             .table {
                 .action-btn {
@@ -1771,18 +1822,33 @@ html {
                         }
                     }
                 }
-                width: 100% !important;
+                width: 100%;
                 border-collapse: collapse;
-                overflow-x: auto;
+                thead {
+                    background-color: #e1e7ff;
+                    border-radius: 10px !important;
+                    position: sticky;
+                    top: 0px;
+                    th {
+                        text-transform: uppercase;
+                        color: grey;
+                        letter-spacing: 0.8px;
+                    }
+                }
+                tbody {
+                    tr {
+                        border-bottom: 1px solid #f0f1f5;
+                        transition: 0.2s;
+                        &:hover {
+                            background-color: #f7f7f7;
+                        }
+                    }
+                }
+
                 td,
                 th {
                     padding: 20px 15px;
                     text-align: center;
-                    border-bottom: 1px solid #f0f1f5;
-                }
-                th {
-                    text-transform: uppercase;
-                    color: #b1b1b1;
                 }
                 td {
                     color: grey;

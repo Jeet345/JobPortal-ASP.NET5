@@ -1,0 +1,72 @@
+﻿@using Microsoft.AspNetCore.Http
+@model IEnumerable<JobPortal.Models.JobApplication>
+
+@{
+    ViewData["Title"] = "Manage Experience";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="content">
+
+
+    <div class="add-btn">
+        <Button class="btn">Add Record</Button>
+    </div>
+
+    <div class="display-table">
+
+        <table class="table">
+
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Id</th>
+                    <th>User Name</th>
+                    <th>Company Name</th>
+                    <th>Application Date</th>
+                    <th>Job Title</th>
+                    <th>Category Name</th>
+                    <th>Status</th>
+
+                </tr>
+            </thead>
+
+            <tbody>
+
+
+                @foreach (var item in Model)
+                {
+                <tr>
+                    <td>
+                        <div class="action-btn">
+                            <button class="btn edit-btn">Edit</button>
+                            <button class="btn delete-btn">Delete</button>
+                        </div>
+                    </td>
+                    <td>@item.Id</td>
+                    <td>@item.JobSeeker.Name</td>
+                    <td>@item.Employer.CompanyName</td>
+                    <td>@item.Job.JobTitle</td>
+                    <td>@item.ApplicationDate</td>
+                    <td>@item.Category.CategoryName</td>
+                    <td>
+                        @if (item.Status == 1)
+                        {
+                            <span style="color: #2cad79">Applied</span>
+                        }
+                        else if (item.Status == 0)
+                        {
+                            <span style="color: #ff4679">Rejected</span>
+                        }
+                    </td>
+                </tr>
+                }
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+

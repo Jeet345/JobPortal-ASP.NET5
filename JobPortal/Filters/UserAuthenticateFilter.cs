@@ -17,7 +17,7 @@ namespace JobPortal.Filters
         {
             string controller = (string)context.RouteData.Values["controller"];
 
-            if (context.HttpContext.Session.GetString("userEmail") == null)
+            if (String.IsNullOrEmpty(context.HttpContext.Session.GetString("userEmail")))
             {
                 context.HttpContext.Response.Redirect("/");
             }

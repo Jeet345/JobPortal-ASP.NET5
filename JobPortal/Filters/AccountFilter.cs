@@ -16,15 +16,19 @@ namespace JobPortal.Filters
         public void OnActionExecuting(ActionExecutingContext context)
         {
 
-            string action = (string)context.RouteData.Values["action"];
+            bool isAjaxCall = context.HttpContext.Request.Headers["x-requested-with"] == "XMLHttpRequest";
 
-            if (context.HttpContext.Session.GetString("userEmail") != null 
-                && !action.Equals("logout")
-                && !action.Equals("ChangePassword"))
+            if (!isAjaxCall)
             {
-                context.HttpContext.Response.Redirect("/");
-            }
+                string action = (string)context.RouteData.Values["action"];
 
+                if (context.HttpContext.Session.GetString("userEmail") != null
+                    && !action.Equals("logout")
+                    && !action.Equals("ChangePassword"))
+                {
+                    context.HttpContext.Response.Redirect("/");
+                }
+            }
         }
     }
 }

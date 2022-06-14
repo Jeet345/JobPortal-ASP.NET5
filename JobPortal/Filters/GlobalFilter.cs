@@ -1,17 +1,13 @@
 ﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
+using Microsoft.Extensions.Caching.Memory;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace JobPortal.Filters
 {
-    [ResponseCache(Location = ResponseCacheLocation.None, NoStore = true)]
-    public class GlobalFilter : Attribute, IActionFilter,IOrderedFilter
+    
+    public class GlobalFilter : Attribute, IActionFilter, IOrderedFilter
     {
-
         public GlobalFilter(int order = -20)
         {
             Order = order;
@@ -24,9 +20,9 @@ namespace JobPortal.Filters
             //throw new NotImplementedException();
             Console.WriteLine("Global Filter Executed");
         }
-
         public void OnActionExecuting(ActionExecutingContext context)
         {
+
             Console.WriteLine("Global Filter Executing");
             string currentPath = context.HttpContext.Request.Path;
 
@@ -38,6 +34,10 @@ namespace JobPortal.Filters
                     {
                         context.HttpContext.Response.Redirect("/Employer");
                     }
+                    else if (context.HttpContext.Session.GetString("groupName").Equals("Admin"))
+                    {
+                        context.HttpContext.Response.Redirect("/Admin");
+                    }
                     else
                     {
                         context.HttpContext.Response.Redirect("/Jobseeker");
@@ -48,9 +48,8 @@ namespace JobPortal.Filters
                     context.HttpContext.Response.Redirect("/Jobseeker");
                 }
 
-
-
             }
         }
+
     }
 }

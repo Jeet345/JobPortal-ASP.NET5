@@ -8,6 +8,8 @@ using System.Collections.Generic;
 using System.Data.Entity.Infrastructure;
 using System.Dynamic;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Threading.Tasks;
 
 namespace JobPortal.Controllers
@@ -36,6 +38,15 @@ namespace JobPortal.Controllers
 
         public IActionResult AllJobs()
         {
+            //var sendMail = new SendMail
+            //{
+            //    toMail = "mendaparajeet@gmail.com",
+            //    mailBody = "<h2>Your Application Selected For Hiring.</h2>",
+            //    mailTitle = "Clear Career Job Portal",
+            //    subject = "Applied Job"
+            //};
+            //sendMail.Send();
+
             var jobs = _context.Jobs
                 .Where(j => j.JobStatus == 1)
                 .OrderByDescending(j => j.Id);
@@ -142,6 +153,102 @@ namespace JobPortal.Controllers
             return View(jobseeker);
         }
 
+
+        [HttpPost]
+        public bool AddEducationRequest(JobSeekerEducation newEducation)
+        {
+            if (ModelState.IsValid)
+            {
+                int userId = int.Parse(HttpContext.Session.GetString("userId"));
+
+                User user = _context.Users.Find(userId);
+                
+                if (user == null)
+                {
+                    return false;
+                }
+
+                JobSeekerEducation educationToAdd = new JobSeekerEducation
+                {
+                    Education = newEducation.Education,
+                    Course = newEducation.Course,
+                    JobSeekerId = userId,
+                    Marks = newEducation.Marks,
+                    PassingYear = newEducation.PassingYear,
+                    University = newEducation.University
+                };
+
+                _context.Add(educationToAdd);
+                _context.SaveChanges();
+
+                return true;
+            }
+
+            return false;
+        }
+
+        [HttpPost]
+        public IActionResult AddExperienceRequest(JobSeekerExperience newExperience)
+        {
+            int userId = int.Parse(HttpContext.Session.GetString("userId"));
+
+            User user = _context.Users.Find(userId);
+
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            JobSeekerExperience experienceToAdd = new JobSeekerExperience
+            {
+                Designation = newExperience.Designation,
+                EndMonth = newExperience.EndMonth,
+                StartMonth = newExperience.StartMonth,
+                Experience = newExperience.Experience,
+                JobSeekerId = userId,
+                Organization = newExperience.Organization,
+                Salary = newExperience.Salary,
+                JobProfile = newExperience.JobProfile
+            };
+
+            _context.Add(experienceToAdd);
+            _context.SaveChanges();
+
+            return Redirect("/Jobseeker/Account");
+        }
+        
+        [HttpPost]
+        public IActionResult AddProjectRequest(JobSeekerProject newProject)
+        {
+            int userId = int.Parse(HttpContext.Session.GetString("userId"));
+
+            User user = _context.Users.Find(userId);
+
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            JobSeekerProject projectToAdd = new JobSeekerProject
+            {
+                JobSeekerId = userId,
+                ProjectClient = newProject.ProjectClient,
+                ProjectDetails = newProject.ProjectDetails,
+                ProjectSkilles = newProject.ProjectSkilles,
+                ProjectStatus = newProject.ProjectStatus,
+                ProjectTitle = newProject.ProjectTitle,
+                StartMonth = newProject.StartMonth,
+                EndMonth = newProject.EndMonth
+            };
+
+            _context.Add(projectToAdd);
+            _context.SaveChanges();
+
+            return Redirect("/Jobseeker/Account");
+        }
+
+
+
         [HttpPost]
         public bool AccountRequest(User userToUpdate)
         {
@@ -187,18 +294,13 @@ namespace JobPortal.Controllers
 
             int userId = int.Parse(HttpContext.Session.GetString("userId"));
 
-            var jobs = (from a in _context.JobApplications
-                        join j in _context.Jobs on a.JobId equals j.Id
-                        join c in _context.Categories on j.JobCategoryId equals c.Id
-                        join e in _context.Users on a.EmployerId equals e.Id
-                        where a.JobSeekerId == userId
-                        select new JobApplication {
-                            ApplicationDate = a.ApplicationDate,
-                            Id = a.Id,
-                            Category = c,
-                            Job = j,
-                            Employer = e
-                        }).OrderByDescending(a => a.Id);
+            var jobs = _context.JobApplications
+                .Include(j => j.Job)
+                .Include(c => c.Category)
+                .Include(e => e.Employer)
+                .Include(e => e.JobSeeker)
+                .Where(j => j.JobSeekerId == userId)
+                .OrderByDescending(j => j.Id);
 
             return View(jobs);
         }

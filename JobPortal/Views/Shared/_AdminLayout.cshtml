@@ -1,0 +1,103 @@
+﻿@using Microsoft.AspNetCore.Http
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - JobPortal</title>
+
+    <link href="~/toastr.js/toastr.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/style.css" />
+
+</head>
+<body>
+
+    <div class="admin-page">
+
+        <div class="admin-sidebar">
+            <h1 class="name">Admin</h1>
+            <ul>
+                <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")">
+                    <a href="/Admin">
+                        <span class="icon"><i class="fa-solid fa-chart-line"></i></span>
+                        <span class="title">Dashboard</span>
+                    </a>
+                </li>
+                <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "ManageCategory" ? "active" : "")">
+                    <a href="/Admin/ManageCategory">
+                        <span class="icon"><i class="far fa-list-alt"></i></span>
+                        <span class="title">Manage Job Category</span>
+                    </a>
+                </li>
+                <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "ManageUsers" ? "active" : "")">
+                    <a href="/Admin/ManageUsers">
+                        <span class="icon"><i class="fas fa-user"></i></span>
+                        <span class="title">Manage Users</span>
+                    </a>
+                </li>
+                <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "ManageEducation" ? "active" : "")">
+                    <a href="/Admin/ManageEducation">
+                        <span class="icon"><i class="fas fa-books"></i></span>
+                        <span class="title">Job-seeker Education</span>
+                    </a>
+                </li>
+
+                <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "ManageExperience" ? "active" : "")">
+                    <a href="/Admin/ManageExperience">
+                        <span class="icon"><i class="fas fa-user-chart"></i></span>
+                        <span class="title">Job-seeker Experience</span>
+                    </a>
+                </li>
+
+                <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "ManageProject" ? "active" : "")">
+                    <a href="/Admin/ManageProject">
+                        <span class="icon"><i class="fas fa-file-check"></i></span>
+                        <span class="title">Job-seeker Project</span>
+                    </a>
+                </li>
+
+                <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "ManageJobs" ? "active" : "")">
+                    <a href="/Admin/ManageJobs">
+                        <span class="icon"><i class="fas fa-tasks"></i></span>
+                        <span class="title">Manage Jobs</span>
+                    </a>
+                </li>
+
+                <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "ManageJobApplications" ? "active" : "")">
+                    <a href="/Admin/ManageJobApplications">
+                        <span class="icon"><i class="fas fa-file-alt"></i></span>
+                        <span class="title">Manage Job Applications</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/Logout">
+                        <span class="icon"><i class="fas fa-sign-out-alt"></i></span>
+                        <span class="title">Logout</span>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+
+        @RenderBody()
+
+    </div>
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/FA5PRO/js/all.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"
+            integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="~/jquery-validate/jquery.validate.js"></script>
+    <script src="~/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    <script src="~/jquery-ajax-unobtrusive/jquery.unobtrusive-ajax.js"></script>
+    <script src="~/toastr.js/toastr.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
